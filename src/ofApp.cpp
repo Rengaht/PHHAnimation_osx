@@ -6,6 +6,7 @@ float PThousandMiles::_speed=0.001;
 //--------------------------------------------------------------
 void ofApp::setup(){
 
+    _recording=false;
 	_idx_scene=0;
 	_scene.push_back(new PThousandMiles());
 	_scene.push_back(new PYoungNight());
@@ -44,15 +45,20 @@ void ofApp::draw(){
 		_scene[_idx_scene]->draw();
 	_fbo.end();
 
-    _fbo.readToPixels(_pixels);
+    //_fbo.readToPixels(_pixels);
     //_NDIsender.send(_pixels);
 
 	_fbo.draw(0,0);
 
+#ifdef DRAW_DEBUG
 	ofPushStyle();
 	ofSetColor(255,0,0);
 		ofDrawBitmapString(ofToString(ofGetFrameRate()),0,10);
 	ofPopStyle();
+#endif
+    
+    if(_recording) ofSaveFrame("tmp_####.png");
+    
 }
 
 //--------------------------------------------------------------
@@ -62,12 +68,23 @@ void ofApp::keyReleased(int key){
 		case '2':
 			setScene(key-'1');
 			break;
-	}
+        case '.':
+        case '>':
+            _scene[_idx_scene]->goNextStage();
+            break;
+        case 'p':
+        case 'P':
+            _scene[_idx_scene]->reset();
+            break;
+        case ' ':
+            _recording=!_recording;
+            break;
+    }
 }
 
 //--------------------------------------------------------------
 void ofApp::mouseReleased(int x, int y, int button){
-
+    ofSaveFrame("capture_####.png");
 }
 
 void ofApp::setScene(int set_){

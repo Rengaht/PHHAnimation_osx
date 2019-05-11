@@ -14,11 +14,13 @@ public:
     
     ofVec2f _pos,_size;
     bool _dead;
+    bool _use_texture;
     
 	PElement(){
         _dead=false;
 		_layer=0;
 		_loop=true;
+        _use_texture=false;
 		_anim_loop=FrameTimer(INTERVAL_ELEM_LOOP,ofRandom(.5)*INTERVAL_ELEM_LOOP);
 	}
     ~PElement(){};

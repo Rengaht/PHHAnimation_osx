@@ -1,9 +1,15 @@
 #pragma once
 
+
+//#define DRAW_DEBUG
+#define WSTROKE 1
+
+
 #include "ofMain.h"
 #include "ofxNDISender.h"
 #include "PYoungNight.h"
 #include "PThousandMiles.h"
+
 
 
 class ofApp : public ofBaseApp{
@@ -30,4 +36,6 @@ class ofApp : public ofBaseApp{
 		
 		ofPixels _pixels;
 		ofFbo _fbo;
+    
+        bool _recording;
 };

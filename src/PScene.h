@@ -16,6 +16,10 @@ public:
 	virtual void reset();
 
 	list<PElement*> _element;
+    
+    int _idx_stage;
+    int _mstage;
+    void goNextStage();
 
 };
 

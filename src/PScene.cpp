@@ -2,7 +2,7 @@
 
 
 PScene::PScene(){
-
+    _idx_stage=0;
 }
 
 void PScene::update(float dt_){
@@ -14,12 +14,18 @@ void PScene::draw(){
 
 }
 void PScene::init(){
+    _idx_stage=0;
 	for(auto& e: _element) (*e).init();
 }
 void PScene::end(){
 	for(auto& e: _element) (*e).end();
 }
 void PScene::reset(){
-	for(auto& e: _element) (*e).reset();
+    _idx_stage=0;
+    _element.clear();
+    //for(auto& e: _element) (*e).reset();
+}
+void PScene::goNextStage(){
+    _idx_stage=min(_idx_stage+1,_mstage);
 }
 

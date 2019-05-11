@@ -9,15 +9,15 @@ class PMountain:public PElement{
     float _alpha;
 public:
     PMountain(float dx_):PElement(){
-        _alpha=ofRandom(120);
-        _pos=ofVec2f(dx_,ofGetHeight()/2+ofRandom(-20,20));
+        _alpha=ofRandom(120,180);
+        _pos=ofVec2f(dx_,ofGetHeight()/2+ofRandom(-50,0));
+        _use_texture=true;
         init();
 	}
 	void draw(){
         
     
         ofPushStyle();
-//        ofSetLineWidth(10);
         ofSetColor(_alpha);
         
         ofPushMatrix();
@@ -29,14 +29,14 @@ public:
         ofPopStyle();
 	}
     void update(float vel_,float dt_){
-        _pos.x-=vel_;
+        _pos.x-=vel_*ofMap(_pos.y,ofGetHeight()/2-50,ofGetHeight()/2,0.5,1);
         if(_pos.x<-_size.x){
             _dead=true;
         }
     }
     void init(){
         
-        int m=ofRandom(4,6);
+        int m=ofRandom(4,16);
         float r=ofGetHeight()/12*ofRandom(.4,6)/2;
         float rat=ofRandom(.2,.5);
         
@@ -44,7 +44,7 @@ public:
         
         float eang=TWO_PI/float(m);
         vector<float> corner;
-        float sang=ofRandom(HALF_PI*3);
+        float sang=HALF_PI*3;
         float ang=sang;
         while(ang<sang+TWO_PI){
             corner.push_back(ang);
@@ -60,8 +60,14 @@ public:
         _mesh.setMode(OF_PRIMITIVE_TRIANGLES);
         for(int i=0;i<mcorner;++i){
             _mesh.addVertex(ofVec3f(0,0,0));
-            _mesh.addVertex(ofVec3f(r*sin(corner[i]),r*rat*cos(corner[i]),0));
-            _mesh.addVertex(ofVec3f(r*sin(corner[(i+1)%mcorner]),r*rat*cos(corner[(i+1)%mcorner]),0));
+            
+            float tt=cos(corner[i]);
+            if(tt>0) tt=ofRandom(-.1,.1);
+            _mesh.addVertex(ofVec3f(r*sin(corner[i]),r*rat*tt,0));
+            
+            tt=cos(corner[(i+1)%mcorner]);
+            if(tt>0) tt=ofRandom(-.1,.1);
+            _mesh.addVertex(ofVec3f(r*sin(corner[(i+1)%mcorner]),r*rat*tt,0));
             
             _mesh.addTexCoord(ofVec2f(tx,ty));
             _mesh.addTexCoord(ofVec2f(max(tx+r*rt*sin(corner[i]),0.0f),min((float)ofGetHeight(),ty+r*rt*rat*cos(corner[i]))));
