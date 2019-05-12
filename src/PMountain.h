@@ -12,6 +12,8 @@ public:
         _alpha=ofRandom(120,180);
         _pos=ofVec2f(dx_,ofGetHeight()/2+ofRandom(-50,0));
         _use_texture=true;
+        _layer=1;
+        
         init();
 	}
 	void draw(){
@@ -29,7 +31,8 @@ public:
         ofPopStyle();
 	}
     void update(float vel_,float dt_){
-        _pos.x-=vel_*ofMap(_pos.y,ofGetHeight()/2-50,ofGetHeight()/2,0.5,1);
+       // _pos.x-=vel_*ofMap(_pos.y,ofGetHeight()/2-50,ofGetHeight()/2,0.5,1);
+         _pos.x-=vel_*ofMap(_pos.y,ofGetHeight()/2-100,ofGetHeight()/2,.2,1);
         if(_pos.x<-_size.x){
             _dead=true;
         }
@@ -38,7 +41,7 @@ public:
         
         int m=ofRandom(4,16);
         float r=ofGetHeight()/12*ofRandom(.4,6)/2;
-        float rat=ofRandom(.2,.5);
+        float rat=ofRandom(.1,.5);
         
         _size=ofVec2f(r*2,r*rat*2);
         

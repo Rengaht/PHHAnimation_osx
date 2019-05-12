@@ -28,4 +28,3 @@ void PScene::reset(){
 void PScene::goNextStage(){
     _idx_stage=min(_idx_stage+1,_mstage);
 }
-

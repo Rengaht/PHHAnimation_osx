@@ -14,13 +14,13 @@ public:
 	virtual void update(float dt_);
 	virtual void draw();
 	virtual void reset();
-
+    virtual void setEffect(int i_){};
+    
 	list<PElement*> _element;
     
     int _idx_stage;
     int _mstage;
     void goNextStage();
-
 };
 
 

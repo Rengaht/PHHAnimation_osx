@@ -1,7 +1,7 @@
 #pragma once
 
 
-//#define DRAW_DEBUG
+#define DRAW_DEBUG
 #define WSTROKE 1
 
 
@@ -19,7 +19,7 @@ class ofApp : public ofBaseApp{
 		void update();
 		void draw();
 
-		void keyReleased(int key);
+		void keyPressed(int key);
 		void mouseReleased(int x, int y, int button);
 		
 
@@ -30,7 +30,7 @@ class ofApp : public ofBaseApp{
 		vector<PScene*> _scene;
 
 		void setScene(int set_);
-
+        void mapEffect(int key_);
 
 		ofxNDISender _NDIsender;
 		

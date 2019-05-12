@@ -62,7 +62,7 @@ void ofApp::draw(){
 }
 
 //--------------------------------------------------------------
-void ofApp::keyReleased(int key){
+void ofApp::keyPressed(int key){
 	switch(key){
 		case '1':
 		case '2':
@@ -79,6 +79,9 @@ void ofApp::keyReleased(int key){
         case ' ':
             _recording=!_recording;
             break;
+        default:
+            mapEffect(key);
+            break;
     }
 }
 
@@ -91,4 +94,16 @@ void ofApp::setScene(int set_){
 	
 	_idx_scene=set_;
 	_scene[set_]->init();
+}
+
+void ofApp::mapEffect(int key_){
+    int idx=-1;
+    switch(key_){
+        case 'a': idx=0;break;
+        case 's': idx=1;break;
+        case 'd': idx=2;break;
+        case 'f': idx=3;break;
+        case 'g': idx=4;break;
+    }
+    _scene[_idx_scene]->setEffect(idx);
 }

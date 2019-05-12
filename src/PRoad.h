@@ -19,6 +19,9 @@ public:
     PRoad(ofVec2f start_):PElement(){
         _alpha=ofRandom(120);
         _pos=start_;
+        
+        _layer=0;
+        
         init();
     }
     void draw(){
@@ -46,7 +49,7 @@ public:
     void init(){
         
         int m=ofRandom(14,36);
-        float r=ofGetHeight()/4*ofRandom(.2,6);
+        float r=ofGetHeight()/8*ofRandom(.2,6);
         
         _mesh.setMode(OF_PRIMITIVE_LINE_STRIP);
         float tx=0;

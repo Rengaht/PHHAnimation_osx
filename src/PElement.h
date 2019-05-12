@@ -6,19 +6,20 @@
 
 class PElement{
 	
-	int _layer;
-	bool _loop;
-	FrameTimer _anim_loop;
-
+	
 public:
     
     ofVec2f _pos,_size;
     bool _dead;
     bool _use_texture;
-    
+
+    int _layer;
+    bool _loop;
+    FrameTimer _anim_loop;
+
 	PElement(){
         _dead=false;
-		_layer=0;
+		//_layer=0;
 		_loop=true;
         _use_texture=false;
 		_anim_loop=FrameTimer(INTERVAL_ELEM_LOOP,ofRandom(.5)*INTERVAL_ELEM_LOOP);
