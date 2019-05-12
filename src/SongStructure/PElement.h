@@ -23,14 +23,18 @@ public:
 		_loop=true;
         _use_texture=false;
 		_anim_loop=FrameTimer(INTERVAL_ELEM_LOOP,ofRandom(.5)*INTERVAL_ELEM_LOOP);
+        _anim_loop.restart();
 	}
-    ~PElement(){};
+    ~PElement(){}
 	
-    virtual void init(){};
-    virtual void end(){};
-    virtual void update(float vel_,float dt_){};
-    virtual void draw(){};
-    virtual void reset(){};
+    virtual void init(){}
+    virtual void end(){}
+    virtual void update(float vel_,float dt_){
+        _anim_loop.update(dt_);
+        if(_anim_loop.val()==1) _anim_loop.restart();
+    }
+    virtual void draw(){}
+    virtual void reset(){}
 
 
 

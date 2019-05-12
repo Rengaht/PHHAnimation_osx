@@ -11,7 +11,7 @@
 
 class PRock:public PElement{
     
-    ofMesh _mesh;
+    list<ofMesh> _mesh;
     float _alpha;
 public:
     
@@ -33,7 +33,7 @@ public:
         
         ofPushMatrix();
         ofTranslate(_pos);
-        _mesh.draw();
+        for(auto& p:_mesh) p.draw();
         ofPopMatrix();
         
         ofPopStyle();
@@ -83,24 +83,25 @@ public:
             float mx=ofRandom(-r,r)+rx;
             float my=ofRandom(-r*rat,r*rat)+ry;
             float mz=ofRandom(-10,10);
-            //ofMesh tm_;
+            
+            ofMesh tm_;
             float mr=r/m*ofRandom(.5,m);
             
-            _mesh.setMode(OF_PRIMITIVE_TRIANGLES);
+            tm_.setMode(OF_PRIMITIVE_TRIANGLES);
             for(int i=0;i<mcorner;++i){
-                _mesh.addVertex(ofVec3f(mx,my,0));
+                tm_.addVertex(ofVec3f(mx,my,0));
                 
                 float tt=cos(corner[i]);
-                _mesh.addVertex(ofVec3f(mx+mr*sin(corner[i]),my+mr*tt,mz));
+                tm_.addVertex(ofVec3f(mx+mr*sin(corner[i]),my+mr*tt,mz));
                 
                 tt=cos(corner[(i+1)%mcorner]);
-                _mesh.addVertex(ofVec3f(mx+mr*sin(corner[(i+1)%mcorner]),my+mr*tt,mz));
+                tm_.addVertex(ofVec3f(mx+mr*sin(corner[(i+1)%mcorner]),my+mr*tt,mz));
                 
-                _mesh.addTexCoord(ofVec2f(tx,ty));
-                _mesh.addTexCoord(ofVec2f(max(tx+r*rt*sin(corner[i]),0.0f),min((float)ofGetHeight(),ty+r*rt*cos(corner[i]))));
-                _mesh.addTexCoord(ofVec2f(max(tx+r*rt*sin(corner[(i+1)%mcorner]),0.0f),min((float)ofGetHeight(),ty+r*rt*cos(corner[(i+1)%mcorner]))));
+                tm_.addTexCoord(ofVec2f(tx,ty));
+                tm_.addTexCoord(ofVec2f(max(tx+r*rt*sin(corner[i]),0.0f),min((float)ofGetHeight(),ty+r*rt*cos(corner[i]))));
+                tm_.addTexCoord(ofVec2f(max(tx+r*rt*sin(corner[(i+1)%mcorner]),0.0f),min((float)ofGetHeight(),ty+r*rt*cos(corner[(i+1)%mcorner]))));
             }
-            //_mesh.push_back(tm_);
+            _mesh.push_back(tm_);
         }
         
     }

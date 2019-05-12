@@ -121,13 +121,15 @@
 		A6E9AE8F2287CFAC002BCAED /* PSong.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSong.h; sourceTree = "<group>"; };
 		A6E9AE902287D09D002BCAED /* PSceneRoad.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSceneRoad.h; sourceTree = "<group>"; };
 		A6E9AE932287D6C2002BCAED /* PMountain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMountain.h; sourceTree = "<group>"; };
-		A6E9AE942287D6DD002BCAED /* PSceneFloat.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSceneFloat.h; sourceTree = "<group>"; };
+		A6E9AE942287D6DD002BCAED /* PSceneTunnel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSceneTunnel.h; sourceTree = "<group>"; };
 		A6E9AE952287D82A002BCAED /* PElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PElement.h; sourceTree = "<group>"; };
 		A6E9AE962287D82A002BCAED /* PScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PScene.cpp; sourceTree = "<group>"; };
 		A6E9AE972287D82A002BCAED /* PScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PScene.h; sourceTree = "<group>"; };
 		A6E9AE992287DC4B002BCAED /* PRoadSign.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PRoadSign.h; sourceTree = "<group>"; };
 		A6E9AE9A22880856002BCAED /* PRock.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PRock.h; sourceTree = "<group>"; };
 		A6E9AE9B22881A63002BCAED /* PSign.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSign.h; sourceTree = "<group>"; };
+		A6E9AE9C228850C1002BCAED /* PSceneFloat.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSceneFloat.h; sourceTree = "<group>"; };
+		A6E9AE9D2288527C002BCAED /* PPlanet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PPlanet.h; sourceTree = "<group>"; };
 		B2F3289AB405C5BB496FC247 /* PixelatePass.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = PixelatePass.h; path = ../../../addons/ofxPostProcessing/src/PixelatePass.h; sourceTree = SOURCE_ROOT; };
 		B5CEF0B83529626C7E8410B7 /* BloomPass.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = BloomPass.h; path = ../../../addons/ofxPostProcessing/src/BloomPass.h; sourceTree = SOURCE_ROOT; };
 		BAA4E229C246D7B615917505 /* ZoomBlurPass.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ZoomBlurPass.h; path = ../../../addons/ofxPostProcessing/src/ZoomBlurPass.h; sourceTree = SOURCE_ROOT; };
@@ -288,6 +290,7 @@
 				A6E9AE992287DC4B002BCAED /* PRoadSign.h */,
 				A6E9AE9B22881A63002BCAED /* PSign.h */,
 				A6E9AE9A22880856002BCAED /* PRock.h */,
+				A6E9AE9D2288527C002BCAED /* PPlanet.h */,
 			);
 			path = ThousandMilesElement;
 			sourceTree = "<group>";
@@ -432,7 +435,8 @@
 				E4B69E1F0A3A1BDC003C02F2 /* ofApp.h */,
 				CB8506A97611386329709DA6 /* PThousandMiles.h */,
 				A6E9AE902287D09D002BCAED /* PSceneRoad.h */,
-				A6E9AE942287D6DD002BCAED /* PSceneFloat.h */,
+				A6E9AE942287D6DD002BCAED /* PSceneTunnel.h */,
+				A6E9AE9C228850C1002BCAED /* PSceneFloat.h */,
 				A6E9AE912287D63B002BCAED /* ThousandMilesElement */,
 				A6E9AE922287D64C002BCAED /* SongStructure */,
 				E46AF89C80EF02D241F4DC5B /* FrameTimer.h */,
