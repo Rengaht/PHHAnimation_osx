@@ -1,23 +1,16 @@
 #ifndef PYOUNG_NIGHT_H
 #define PYOUNG_NIGHT_H
 
-#include "PScene.h"
+#include "PSong.h"
 
-class PYoungNight:public PScene{
+class PYoungNight:public PSong{
 
 public:
-    static float _speed;
-    
-    PYoungNight():PScene(){
-		
+    PYoungNight():PSong(){
+        _mscene=0;
+		_name_song="Young Night";
 	}
 
-	void draw(){
-
-		ofBackground(0);
-		ofDrawBitmapString("Young Nights",50,50);
-		PScene::draw();
-	}
 };
 
 

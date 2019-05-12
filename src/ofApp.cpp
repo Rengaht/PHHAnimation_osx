@@ -1,15 +1,15 @@
 #include "ofApp.h"
 
-float PYoungNight::_speed=1;
-float PThousandMiles::_speed=0.001;
 
+float PSceneRoad::_speed=0.001;
+float PSceneFloat::_speed=10;
 //--------------------------------------------------------------
 void ofApp::setup(){
 
     _recording=false;
-	_idx_scene=0;
-	_scene.push_back(new PThousandMiles());
-	_scene.push_back(new PYoungNight());
+	_idx_song=0;
+	_song.push_back(new PThousandMiles());
+	_song.push_back(new PYoungNight());
 
 	_last_millis=ofGetElapsedTimeMillis();
 
@@ -29,7 +29,7 @@ void ofApp::update(){
 	_last_millis+=_dmillis;
 
 	
-	_scene[_idx_scene]->update(_dmillis);
+	_song[_idx_song]->update(_dmillis);
     
 	
 }
@@ -42,7 +42,7 @@ void ofApp::draw(){
 	_fbo.begin();
     //ofBackground(255,0,0);
     ofClear(255);
-		_scene[_idx_scene]->draw();
+		_song[_idx_song]->draw();
 	_fbo.end();
 
     //_fbo.readToPixels(_pixels);
@@ -68,13 +68,9 @@ void ofApp::keyPressed(int key){
 		case '2':
 			setScene(key-'1');
 			break;
-        case '.':
-        case '>':
-            _scene[_idx_scene]->goNextStage();
-            break;
         case 'p':
         case 'P':
-            _scene[_idx_scene]->reset();
+            _song[_idx_song]->reset();
             break;
         case ' ':
             _recording=!_recording;
@@ -92,18 +88,10 @@ void ofApp::mouseReleased(int x, int y, int button){
 
 void ofApp::setScene(int set_){
 	
-	_idx_scene=set_;
-	_scene[set_]->init();
+	_idx_song=set_;
+	_song[set_]->reset();
 }
 
 void ofApp::mapEffect(int key_){
-    int idx=-1;
-    switch(key_){
-        case 'a': idx=0;break;
-        case 's': idx=1;break;
-        case 'd': idx=2;break;
-        case 'f': idx=3;break;
-        case 'g': idx=4;break;
-    }
-    _scene[_idx_scene]->setEffect(idx);
+    _song[_idx_song]->setEffect(key_);
 }

@@ -26,8 +26,8 @@ class ofApp : public ofBaseApp{
 		float _dmillis;
 		float _last_millis;
 
-		int _idx_scene;
-		vector<PScene*> _scene;
+		int _idx_song;
+		vector<PSong*> _song;
 
 		void setScene(int set_);
         void mapEffect(int key_);
