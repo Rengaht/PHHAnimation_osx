@@ -148,7 +148,7 @@ public:
         _tex_cloud.begin();
         ofClear(255,255,255,0);
         ofPushStyle();
-        ofSetColor(220);
+        
         ofNoFill();
         //        ofBeginShape();
         for(int i=0;i<c;++i)
@@ -159,10 +159,15 @@ public:
                 int mang=ofRandom(4,16);
                 float eang=TWO_PI/(float)mang;
                 
+                ofSetColor(220);
                 ofBeginShape();
                 for(int k=0;k<=mang;++k) ofVertex(i*m+r*sin(eang*k+ofNoise(i/40.0+k*j/10.0)),j*m+r*cos(eang*k-ofNoise(i*j/20.0)));
                 ofEndShape();
                 
+                ofSetColor(120,200);
+                float dx=ofNoise(i/100.0,j/100.0)-.5;
+                float dy=ofRandom(-1,1)*.5;
+                ofDrawLine(i*m+dx*m,j*m-dy*m,(i)*m-dy*dx*m,(j+1)*m+dy*m);
                 
             }
         //        ofEndShape();

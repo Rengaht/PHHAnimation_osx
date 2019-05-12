@@ -51,7 +51,7 @@ public:
     void init(){
        
         int m=ofRandom(4,10);
-        float r=ofGetHeight()/5*ofRandom(.3,2.5);
+        float r=ofGetHeight()/30*ofRandom(.3,2.5);
         float rat=ofRandom(.2,.6);
         _size=ofVec2f(r*2,r*rat*2);
         

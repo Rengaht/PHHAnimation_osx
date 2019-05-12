@@ -28,6 +28,7 @@ public:
         
         reset();
         initTexture();
+        
     }
     void update(float dt){
         for(auto it=_element.begin();it!=_element.end();){
@@ -36,7 +37,7 @@ public:
             else it++;
         }
         
-        if(_speed>1) _speed-=.25;
+        if(_speed>8) _speed-=1;
         _pos_planet-=_speed;
         addPlanet();
     }
@@ -48,15 +49,14 @@ public:
 //        _camera.begin();
         ofDrawAxis(10);
         
-        
         _tex_rock.getTexture().bind();
         for(auto& e: _element)
             if(e->_layer==1) (*e).draw();
         _tex_rock.getTexture().unbind();
         
         
-        for(auto& e: _element)
-            if(e->_layer==0) (*e).draw();
+//        for(auto& e: _element)
+//            if(e->_layer==0) (*e).draw();
         
 //        _camera.end();
         
@@ -74,7 +74,7 @@ public:
         }
     }
     void addPlanet(){
-        while(_pos_planet<ofGetWidth()){
+        while(_pos_planet<ofGetWidth()*1.2){
             //            if(ofRandom(5)<1) _pos_road+=ofVec2f(ofRandom(-250,25),ofRandom(-5,5));
             //            if(abs(_pos_road.y-ofGetHeight()/1.9)>50) _pos_road.y=ofGetHeight()/1.9;
             auto p=new PPlanet(ofVec2f(_pos_planet,ofRandom(-0.2,1.2)*ofGetHeight()));
@@ -87,28 +87,33 @@ public:
         
         _tex_rock.allocate(ofGetHeight(),ofGetHeight(),GL_RGBA);
         
-        float c=120;
+        float c=130;
         float m=ofGetHeight()/c;
         
         _tex_rock.begin();
         ofClear(255,255,255,0);
         ofPushStyle();
-        ofSetColor(120);
+       
         //ofSetLineWidth(WSTROKE);
         //ofNoFill();
         for(int i=0;i<c;++i)
             for(int j=0;j<c;++j){
-                float r=(ofNoise(i/20.0,j/20.0)+ofRandom(-.1,.1));
-                if(r<.4) continue;
+                float r=(ofNoise(i/10.0,j/10.0)+ofRandom(-.1,.1));
+                if(r<.2) continue;
                 r=m;
                 int mang=ofRandom(4,16);
                 float eang=TWO_PI/(float)mang;
-
+                
+                 ofSetColor(240,200);
                 ofBeginShape();
                 for(int k=0;k<=mang;++k) ofVertex(i*m+r*sin(eang*k+ofNoise(i/40.0+k*j/10.0)),j*m+r*cos(eang*k-ofNoise(i*j/20.0)));
                 ofEndShape();
 
-
+                ofSetColor(120,200);
+                float dx=ofNoise(i/100.0,j/100.0)-.5;
+                float dy=ofRandom(-1,1)*.5;
+                ofDrawLine(i*m+dx*m,j*m-dy*m,(i)*m-dy*dx*m,(j+1)*m+dy*m);
+                
             }
         ofPopStyle();
         _tex_rock.end();

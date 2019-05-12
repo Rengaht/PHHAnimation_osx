@@ -3,11 +3,13 @@
 
 float PSceneRoad::_speed=0.001;
 float PSceneTunnel::_speed=10;
-float PSceneFloat::_speed=10;
+float PSceneFloat::_speed=8;
 
 //--------------------------------------------------------------
 void ofApp::setup(){
-
+    
+    ofHideCursor();
+    
     _recording=false;
 	_idx_song=0;
 	_song.push_back(new PThousandMiles());
