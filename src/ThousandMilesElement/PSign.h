@@ -10,7 +10,8 @@
 
 class PSign:public PElement{
     
-    list<ofPolyline> _path;
+//    list<ofPolyline> _path;
+    ofMesh _mesh;
     float _alpha;
 public:
     
@@ -18,7 +19,7 @@ public:
         _alpha=ofRandom(120);
         _pos=start_;
         
-        _layer=0;
+        _layer=2;
         
         init();
     }
@@ -34,7 +35,8 @@ public:
         ofTranslate(_pos);
         //ofDrawEllipse(0,0,100,100);
         //ofRotate(90,vel.x,vel.y,vel.z);
-        for(auto& p:_path) p.draw();
+//        for(auto& p:_path) p.draw();
+        _mesh.draw();
         ofPopMatrix();
         
         ofPopStyle();
@@ -55,18 +57,32 @@ public:
         float sang=-HALF_PI;
         float ang=PI;
         
-        for(float i=0;i<m;++i){
-            ofPolyline p;
+//        for(float i=0;i<m;++i){
+//            ofPolyline p;
             float tx=ofRandom(.9,1.1)*w;
             
-            p.addVertex(ofVec3f(-tx,0,0));
-            p.addVertex(ofVec3f(-tx,0,r));
-            p.addVertex(ofVec3f(tx,0,r));
-            p.addVertex(ofVec3f(tx,0,0));
-            p.addVertex(ofVec3f(-tx,0,0));
+            _mesh.addVertex(ofVec3f(-tx,0,0));
+            _mesh.addVertex(ofVec3f(-tx,0,r));
+            _mesh.addVertex(ofVec3f(tx,0,r));
         
-            _path.push_back(p);
-        }
+            _mesh.addVertex(ofVec3f(tx,0,r));
+            _mesh.addVertex(ofVec3f(tx,0,0));
+            _mesh.addVertex(ofVec3f(-tx,0,0));
+            
+            float ux1=ofGetHeight()*ofRandom(.5);
+            float uy1=ofGetHeight()*ofRandom(.2);
+        
+            _mesh.addTexCoord(ofVec2f(ux1,uy1));
+            _mesh.addTexCoord(ofVec2f(ux1,uy1+r));
+            _mesh.addTexCoord(ofVec2f(ux1+tx*2,uy1+r));
+        
+            _mesh.addTexCoord(ofVec2f(ux1+tx*2,uy1+r));
+            _mesh.addTexCoord(ofVec2f(ux1+tx*2,uy1));
+            _mesh.addTexCoord(ofVec2f(ux1,uy1));
+            
+        
+//            _path.push_back(p);
+//        }
         
     }
     void end(){

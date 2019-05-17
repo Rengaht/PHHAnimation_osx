@@ -47,7 +47,7 @@ public:
     }
     void init(){
         
-        float m=ofRandom(10,50);
+        float m=ofRandom(80,150);
         float r=ofGetHeight()/8*ofRandom(.2,6);
         float w=ofGetHeight();
         _size=ofVec2f(w,r);

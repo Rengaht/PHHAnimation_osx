@@ -41,7 +41,7 @@ public:
         ofPopStyle();
     }
     void update(float vel_,float dt_){
-        _pos.x-=vel_*1.2;
+        _pos.x-=vel_;
         if(_pos.x<-_size.x){
             _dead=true;
         }

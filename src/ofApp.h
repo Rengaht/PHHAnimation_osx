@@ -2,9 +2,7 @@
 
 
 //#define DRAW_DEBUG
-#define WSTROKE 1
-
-
+#define WSTROKE 2
 #include "ofMain.h"
 #include "ofxNDISender.h"
 #include "PYoungNight.h"

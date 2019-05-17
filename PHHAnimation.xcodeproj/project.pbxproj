@@ -115,6 +115,7 @@
 		9425843AEC3118B8FDEF1B0B /* FxaaPass.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = FxaaPass.cpp; path = ../../../addons/ofxPostProcessing/src/FxaaPass.cpp; sourceTree = SOURCE_ROOT; };
 		9AACF31BAE533E8F81AD4043 /* LUTPass.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = LUTPass.h; path = ../../../addons/ofxPostProcessing/src/LUTPass.h; sourceTree = SOURCE_ROOT; };
 		9E5CB960BB7B2984896C6AD4 /* Processing.NDI.Routing.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = Processing.NDI.Routing.h; path = ../../../addons/ofxNDI/libs/libndi/include/Processing.NDI.Routing.h; sourceTree = SOURCE_ROOT; };
+		A64445C9228DC4F70095A0CB /* PFloatLine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PFloatLine.h; sourceTree = "<group>"; };
 		A6E9AE8C2286FF68002BCAED /* PRoad.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PRoad.h; sourceTree = "<group>"; };
 		A6E9AE8D22872708002BCAED /* PCloud.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PCloud.h; sourceTree = "<group>"; };
 		A6E9AE8E2287B470002BCAED /* PTree.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PTree.h; sourceTree = "<group>"; };
@@ -291,6 +292,7 @@
 				A6E9AE9B22881A63002BCAED /* PSign.h */,
 				A6E9AE9A22880856002BCAED /* PRock.h */,
 				A6E9AE9D2288527C002BCAED /* PPlanet.h */,
+				A64445C9228DC4F70095A0CB /* PFloatLine.h */,
 			);
 			path = ThousandMilesElement;
 			sourceTree = "<group>";

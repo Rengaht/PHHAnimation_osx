@@ -79,7 +79,17 @@ public:
         //        _speed=10+(_timer_speed.valEaseOut())*20;
         
         for(auto it=_element.begin();it!=_element.end();){
-            (**it).update(_speed,dt);
+            switch((**it)._layer){
+                case 0:
+                    (**it).update(_speed*1.2,dt);
+                    break;
+                case 1:
+                    (**it).update(_speed,dt);
+                    break;
+                case 2:
+                    (**it).update(_speed*.5,dt);
+                    break;
+            }
             if((**it)._dead) _element.erase(it++);
             else it++;
         }

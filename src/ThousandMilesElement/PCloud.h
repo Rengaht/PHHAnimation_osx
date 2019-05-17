@@ -21,7 +21,15 @@ public:
         _use_texture=true;
         _layer=2;
         
-        init();
+        init(ofGetHeight()/10*ofRandom(.3,2.5));
+    }
+    PCloud(ofVec2f dx_):PElement(){
+        _alpha=255;//ofRandom(120,180);
+        _pos=dx_;
+        _use_texture=true;
+        _layer=2;
+        
+        init(ofGetHeight()/5*ofRandom(1,2.5));
     }
     void draw(){
         
@@ -43,10 +51,10 @@ public:
             _dead=true;
         }
     }
-    void init(){
+    void init(float r){
         
         int m=ofRandom(8,26);
-        float r=ofGetHeight()/10*ofRandom(.3,2.5);
+//        float r=ofGetHeight()/10*ofRandom(.3,2.5);
         float rat=ofRandom(.2,.6);
         _size=ofVec2f(r*2,r*rat*2);
         

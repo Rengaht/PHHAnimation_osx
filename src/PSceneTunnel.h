@@ -16,7 +16,7 @@
 class PSceneTunnel:public PScene{
     
     float _pos_road,_pos_rock,_pos_sign;
-    ofFbo _tex_rock;
+    ofFbo _tex_rock,_tex_sign;
     
 public:
     static float _speed;
@@ -49,13 +49,16 @@ public:
     }
     void draw(){
         ofClear(255);
-//        _tex_rock.draw(0,0);
+//        _tex_sign.draw(0,0);
         
         _camera.begin();
 //        ofEnableLighting();
         ofDrawAxis(10);
         
-        
+        _tex_sign.getTexture().bind();
+        for(auto& e: _element)
+            if(e->_layer==2) (*e).draw();
+        _tex_sign.getTexture().unbind();
         
         _tex_rock.getTexture().bind();
         for(auto& e: _element)
@@ -114,6 +117,7 @@ public:
     void initTexture(){
         
         _tex_rock.allocate(ofGetHeight(),ofGetHeight(),GL_RGBA);
+        _tex_sign.allocate(ofGetHeight(),ofGetHeight(),GL_RGBA);
         
         float c=5;
         float m=ofGetHeight()/c;
@@ -121,23 +125,8 @@ public:
         _tex_rock.begin();
         ofClear(255,255,255,0);
         ofPushStyle();
-        ofSetColor(0);
+        ofSetColor(20);
         ofSetLineWidth(WSTROKE);
-//        ofNoFill();
-//        for(int i=0;i<c;++i)
-//            for(int j=0;j<c;++j){
-//                float r=(ofNoise(i/20.0,j/20.0)+ofRandom(-.1,.1));
-//                if(r<.4) continue;
-//                r=m;
-//                int mang=ofRandom(4,16);
-//                float eang=TWO_PI/(float)mang;
-//
-//                ofBeginShape();
-//                for(int k=0;k<=mang;++k) ofVertex(i*m+r*sin(eang*k+ofNoise(i/40.0+k*j/10.0)),j*m+r*cos(eang*k-ofNoise(i*j/20.0)));
-//                ofEndShape();
-//
-//
-//            }
         float rat=100;
             for(int i=0;i<c*rat;++i)
             for(int j=0;j<c;++j){
@@ -148,6 +137,26 @@ public:
 
         ofPopStyle();
         _tex_rock.end();
+        
+        
+        _tex_sign.begin();
+        ofClear(255,255,255,0);
+        ofPushStyle();
+        ofSetColor(120);
+        ofSetLineWidth(WSTROKE);
+        ofNoFill();
+        c=50;
+        m=(float)ofGetHeight()/c;
+        for(int i=0;i<c;++i)
+            for(int j=0;j<c;++j){
+                float dx=ofNoise(i/5.0,j/5.0)-.5;
+                float dy=ofRandom(-1,1)*.5;
+//                    ofDrawEllipse(i*m+dx*m,j*m-dy*m,dy*m*5,dy*m*5);
+                ofDrawLine(i*m+dx*m,j*m-dy*m,(i+1)*m*dx+dy*dx*m,(j)*m+dy*m);
+            }
+        
+        ofPopStyle();
+        _tex_sign.end();
     }
 };
 #endif /* PSceneTunnel_h */
