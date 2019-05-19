@@ -23,6 +23,7 @@ void PScene::end(){
 void PScene::reset(){
     _idx_stage=0;
     _element.clear();
+    
     //for(auto& e: _element) (*e).reset();
 }
 void PScene::goNextStage(){

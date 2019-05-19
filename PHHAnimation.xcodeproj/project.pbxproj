@@ -116,6 +116,15 @@
 		9AACF31BAE533E8F81AD4043 /* LUTPass.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = LUTPass.h; path = ../../../addons/ofxPostProcessing/src/LUTPass.h; sourceTree = SOURCE_ROOT; };
 		9E5CB960BB7B2984896C6AD4 /* Processing.NDI.Routing.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = Processing.NDI.Routing.h; path = ../../../addons/ofxNDI/libs/libndi/include/Processing.NDI.Routing.h; sourceTree = SOURCE_ROOT; };
 		A64445C9228DC4F70095A0CB /* PFloatLine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PFloatLine.h; sourceTree = "<group>"; };
+		A68B32CB229158EE002ECF17 /* PSceneLine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSceneLine.h; sourceTree = "<group>"; };
+		A68B32CC22915994002ECF17 /* PPLine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PPLine.h; sourceTree = "<group>"; };
+		A68B32CE22916619002ECF17 /* PSceneGrid.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSceneGrid.h; sourceTree = "<group>"; };
+		A68B32CF22916647002ECF17 /* PGrid.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PGrid.h; sourceTree = "<group>"; };
+		A68B32D02291732B002ECF17 /* PSmoke.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSmoke.h; sourceTree = "<group>"; };
+		A68B32D1229173E9002ECF17 /* PSceneSmoke.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSceneSmoke.h; sourceTree = "<group>"; };
+		A68B32D22291B196002ECF17 /* PSceneSunset.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSceneSunset.h; sourceTree = "<group>"; };
+		A68B32D32291B379002ECF17 /* PSunset.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSunset.h; sourceTree = "<group>"; };
+		A6D6F6162291C44200CBDFBF /* PWave.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PWave.h; sourceTree = "<group>"; };
 		A6E9AE8C2286FF68002BCAED /* PRoad.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PRoad.h; sourceTree = "<group>"; };
 		A6E9AE8D22872708002BCAED /* PCloud.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PCloud.h; sourceTree = "<group>"; };
 		A6E9AE8E2287B470002BCAED /* PTree.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PTree.h; sourceTree = "<group>"; };
@@ -281,6 +290,19 @@
 			name = jsoncpp;
 			sourceTree = "<group>";
 		};
+		A68B32CD2291599D002ECF17 /* YoungNightElement */ = {
+			isa = PBXGroup;
+			children = (
+				A68B32CC22915994002ECF17 /* PPLine.h */,
+				A68B32CF22916647002ECF17 /* PGrid.h */,
+				A68B32D02291732B002ECF17 /* PSmoke.h */,
+				A68B32D32291B379002ECF17 /* PSunset.h */,
+				A6D6F6162291C44200CBDFBF /* PWave.h */,
+			);
+			name = YoungNightElement;
+			path = SongStructure/YoungNightElement;
+			sourceTree = "<group>";
+		};
 		A6E9AE912287D63B002BCAED /* ThousandMilesElement */ = {
 			isa = PBXGroup;
 			children = (
@@ -443,6 +465,11 @@
 				A6E9AE922287D64C002BCAED /* SongStructure */,
 				E46AF89C80EF02D241F4DC5B /* FrameTimer.h */,
 				D37E8BE2F38123EEA539BB76 /* PYoungNight.h */,
+				A68B32CD2291599D002ECF17 /* YoungNightElement */,
+				A68B32CB229158EE002ECF17 /* PSceneLine.h */,
+				A68B32CE22916619002ECF17 /* PSceneGrid.h */,
+				A68B32D1229173E9002ECF17 /* PSceneSmoke.h */,
+				A68B32D22291B196002ECF17 /* PSceneSunset.h */,
 			);
 			path = src;
 			sourceTree = SOURCE_ROOT;
