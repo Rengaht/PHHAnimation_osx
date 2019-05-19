@@ -10,8 +10,9 @@
 
 #include "PElement.h"
 
+
 class PSea:public PElement{
-     ofMesh _mesh;
+    ofMesh _mesh;
     ofColor _color;
 public:
     PSea(){
@@ -24,6 +25,10 @@ public:
         float y=ofRandom(.3,.8)*ofGetHeight();
         float sw=ofGetWidth();
         float sh=ofGetHeight()-y;
+        
+        _pos=ofVec2f(0,y);
+        _size=ofVec2f(sw,sh);
+        
         _mesh.addVertex(ofVec2f(0,y));
         _mesh.addVertex(ofVec2f(sw,y));
         _mesh.addVertex(ofVec2f(sw,y+sh));
@@ -56,10 +61,10 @@ public:
         //_timer_fadein.update(dt_);
         
         
-        if(ofRandom(10)>1) return;
+        if(ofRandom(3)>1) return;
         
-        float ty=ofGetFrameNum()%(ofGetHeight()/2);
-        float sh=ofGetHeight()-ty;
+        float ty=fmod(ofGetFrameNum(),_pos.y);
+        float sh=_size.y;
         float tx=0;//ofGetHeight()/2+ofRandom(-10,10);
         float sw=ofGetHeight()-tx;
         

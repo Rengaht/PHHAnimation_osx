@@ -8,6 +8,7 @@
 #ifndef SceneSunset_h
 #define SceneSunset_h
 #include "PSunset.h"
+#include "PWave.h"
 
 class PSceneSunset:public PScene{
     
@@ -48,6 +49,9 @@ public:
             if(e->_layer==0) (*e).draw();
         _tex_line.getTexture().unbind();
         
+        for(auto& e: _element)
+            if(e->_layer==1) (*e).draw();
+        
     }
     void reset(){
         PScene::reset();
@@ -57,6 +61,8 @@ public:
         _element.push_back(new PSea());
         
         _pos_line=0;
+        addWave();
+        
     }
     void setEffect(int i){
         switch(i){
@@ -90,6 +96,12 @@ public:
                 ofDrawEllipse(i*m+dx*m,j*m-dy*m,dx*m,dx*m);
             }
         _tex_line.end();
+    }
+    void addWave(){
+        int m=floor(ofRandom(3,10));
+        for(int i=0;i<m;++i){
+            _element.push_back(new PWave(ofVec2f(ofRandom(.3,.7)*ofGetWidth(),ofGetHeight()*ofRandom(.5,.8)),20,100));
+        }
     }
     
 };
