@@ -14,18 +14,21 @@ class PGrid:public PElement{
     ofMesh _mesh;
     ofColor _color;
     FrameTimer _timer_fadein;
+    ofVec2f _pos_shadow;
     
 public:
     PGrid(float x,float y,float w,float t){
         if(ofRandom(5)<1) _color=ofColor(255);
         else _color=ofColor(ofRandom(180,255),0,ofRandom(60));
         
-        _pos=ofVec2f(x+ofRandom(-.1,.1)*w,y+ofRandom(-.1,.1)*w);
+        _pos=ofVec2f(x,y);//
         init(w*ofRandom(1,1.2));
         
         _layer=0;
         _timer_fadein=FrameTimer(t);
         _timer_fadein.restart();
+        
+        _pos_shadow=ofVec2f(ofRandom(-10,10),ofRandom(-10,10));
     }
     void init(float w){
 //
@@ -127,6 +130,13 @@ public:
         
         _mesh.draw();
         
+        ofPushMatrix();
+        ofTranslate(_pos_shadow);
+        ofSetColor(_color,128*_timer_fadein.valEaseOut());
+        _mesh.draw();
+        
+        ofPopMatrix();
+        
         ofPopStyle();
         
         ofPopMatrix();
@@ -140,6 +150,8 @@ public:
     void update(float vel_,float dt_){
         PElement::update(vel_,dt_);
         _timer_fadein.update(dt_);
+        
+        if(ofRandom(10)<1) _pos_shadow=ofVec2f(ofRandom(-10,10),ofRandom(-10,10));
     }
 };
 

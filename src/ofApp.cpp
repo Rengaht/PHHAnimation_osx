@@ -4,6 +4,7 @@
 float PSceneRoad::_speed=0.001;
 float PSceneTunnel::_speed=10;
 float PSceneFloat::_speed=8;
+//float PSceneSmoke::_speed=1;
 
 //--------------------------------------------------------------
 void ofApp::setup(){

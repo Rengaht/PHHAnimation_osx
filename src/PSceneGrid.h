@@ -19,7 +19,7 @@ class PSceneGrid:public PScene{
     
     FrameTimer _timer_add;
 public:
-    static float _speed;
+    float _speed;
     ofCamera _camera;
     
     PSceneGrid():PScene(){
@@ -41,7 +41,8 @@ public:
             addGrid();
         }
         
-        
+        _speed*=1.01;
+        if(_speed>3) _speed=3;
     }
     void draw(){
         ofClear(0);
@@ -65,6 +66,7 @@ public:
         
         _idx_gridx=0;
         _idx_gridy=0;
+        _speed=1;
         
     }
     void setEffect(int i){
@@ -93,7 +95,7 @@ public:
         _timer_add.restart();
         
         float w=ofRandom(.01,.05)*ofGetWidth();
-        _element.push_back(new PGrid(_idx_gridx*_grid_width,_idx_gridy*_grid_width,_grid_width,t));
+        _element.push_back(new PGrid((_idx_gridx+ofRandom(-1,1)*_speed)*_grid_width,(_idx_gridy+ofRandom(-1,1)*_speed)*_grid_width,_grid_width,t));
         
         if(_idx_gridx<_mgridx) _idx_gridx++;
         else{
