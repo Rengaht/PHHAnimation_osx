@@ -94,16 +94,31 @@ public:
                 ofSetColor(255);
                 ofDrawCircle(i*m+dx*m,j*m-dy*m,dx*m);
             }
-        c=120;
-        m=ofGetHeight()/c;
-        for(int i=0;i<c;++i)
-            for(int j=0;j<c;++j){
-                float dx=ofClamp(ofNoise(i/10.0,j/10.0),.5,1);
-                float dy=ofRandom(.5)+.5;
+        
+        c=60;
+        float _seg=120;
+        float eth=TWO_PI/_seg;
+        
+        float tx=ofGetHeight()/2+ofRandom(-20,20);
+        float ty=ofGetHeight()/2+ofRandom(-20,20);
+        
+        ofPushMatrix();
+        ofTranslate(ofGetHeight()/2,ofGetHeight()/2);
+        for(int j=0;j<c;++j){
+            float w=ofGetHeight()/2/c*j;
+            for(float i=0;i<=_seg;++i){
+                
+                float dx=ofNoise(i/10.0,j/10.0);
+                if(dx<.4) continue;
+                dx+=.5;
+                float dy=ofRandom(1)-.5;
+                
+                float th=eth*i;
                 ofSetColor(200);
-                ofDrawLine(i*m+dx*m,j*m-dy*m,(i)*m-dy*m,(j+1)*m+dx*m);
-                ofDrawLine(i*m+dx*m,j*m-dy*m,(i+1)*m-dx*m,(j)*m+dx*m);
+                ofDrawLine(w*sin(th+eth*dy),w*cos(th),w*sin(th+eth*dx),w*cos(th+eth*dy));
             }
+        }
+        ofPopMatrix();
         _tex_line.end();
     }
     

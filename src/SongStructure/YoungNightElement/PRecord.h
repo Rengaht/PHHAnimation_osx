@@ -25,6 +25,7 @@ class PRecord:public PElement{
     ofVec2f _pos_shadow;
     
     float _seg;
+    float _rad_texcoord;
 public:
     
     int _stage;
@@ -56,7 +57,8 @@ public:
         
 //        for(int x=0;x<mm;++x){
             float mr=w;
-            
+            _rad_texcoord=ofRandom(.5,1.2)*mr;
+        
             float tx=ofGetHeight()/2+ofRandom(-20,20);
             float ty=ofGetHeight()/2+ofRandom(-20,20);
             
@@ -68,8 +70,8 @@ public:
                 _mesh.addVertex(ofVec2f(mr*sin(th+eth),mr*cos(th+eth)));
                 
                 _mesh.addTexCoord(ofVec2f(tx,ty));
-                _mesh.addTexCoord(ofVec2f(tx+mr*sin(th),ty+mr*cos(th)));
-                _mesh.addTexCoord(ofVec2f(tx+mr*sin(th+eth),ty+mr*cos(th+eth)));
+                _mesh.addTexCoord(ofVec2f(tx+_rad_texcoord*sin(th),ty+_rad_texcoord*cos(th)));
+                _mesh.addTexCoord(ofVec2f(tx+_rad_texcoord*sin(th+eth),ty+_rad_texcoord*cos(th+eth)));
             }
 //        }
         
@@ -178,7 +180,7 @@ public:
         
         
         ofPushMatrix();
-        ofTranslate(-_size.x*1.1,-_size.y*1.1);
+        ofTranslate(-_size.x*1.1,-_size.y*1.2);
         ofRotate(-_timer_pin.val()*_ang_pin);
         
         ofSetColor(255,128);
@@ -229,12 +231,12 @@ public:
         int m=0;
         for(float i=0;i<=_seg;++i){
             float th=eth*i;
-            float tx=ofGetHeight()/2+ofGetFrameNum()%50-25;
-            float ty=ofGetHeight()/2+ofGetFrameNum()%50-25;
+            float tx=ofGetHeight()/2+ofGetFrameNum()%10-5+ofRandom(-1,1);
+            float ty=ofGetHeight()/2+ofGetFrameNum()%10-5+ofRandom(-1,1);
             
             _mesh.setTexCoord(m++,ofVec2f(tx,ty));
-            _mesh.setTexCoord(m++,ofVec2f(tx+w*sin(th),ty+w*cos(th)));
-            _mesh.setTexCoord(m++,ofVec2f(tx+w*sin(th+eth),ty+w*cos(th+eth)));
+            _mesh.setTexCoord(m++,ofVec2f(tx+_rad_texcoord*sin(th),ty+_rad_texcoord*cos(th)));
+            _mesh.setTexCoord(m++,ofVec2f(tx+_rad_texcoord*sin(th+eth),ty+_rad_texcoord*cos(th+eth)));
         }
         
         
