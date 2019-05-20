@@ -14,28 +14,40 @@
 class PSea:public PElement{
     ofMesh _mesh;
     ofColor _color;
+    ofVec2f _pos_shadow;
+    
+    ofColor _dest_color;
+    FrameTimer _timer_color;
+    
+    
 public:
     PSea(){
         _color=ofColor(ofRandom(20),ofRandom(20),ofRandom(120,255));
+        _dest_color=ofColor(ofRandom(20),ofRandom(20),ofRandom(120,255));
+        
+        
+        _timer_color=FrameTimer(ofRandom(1000,5000));
+        _timer_color.restart();
+        
         _layer=0;
         init();
     }
     void init(){
         _mesh.setMode(OF_PRIMITIVE_TRIANGLES);
-        float y=ofRandom(.3,.8)*ofGetHeight();
+        float y=.5*ofGetHeight();
         float sw=ofGetWidth();
         float sh=ofGetHeight()-y;
         
         _pos=ofVec2f(0,y);
         _size=ofVec2f(sw,sh);
         
-        _mesh.addVertex(ofVec2f(0,y));
-        _mesh.addVertex(ofVec2f(sw,y));
-        _mesh.addVertex(ofVec2f(sw,y+sh));
+        _mesh.addVertex(ofVec2f(-sw*.1,y));
+        _mesh.addVertex(ofVec2f(sw*1.1,y));
+        _mesh.addVertex(ofVec2f(sw*1.1,y+sh));
         
-        _mesh.addVertex(ofVec2f(sw,y+sh));
-        _mesh.addVertex(ofVec2f(0,y+sh));
-        _mesh.addVertex(ofVec2f(0,y));
+        _mesh.addVertex(ofVec2f(sw*1.1,y+sh));
+        _mesh.addVertex(ofVec2f(-sw*.1,y+sh));
+        _mesh.addVertex(ofVec2f(-sw*.1,y));
         
         float ty=ofRandom(0,y);
         _mesh.addTexCoord(ofVec2f(0,ty));
@@ -50,22 +62,43 @@ public:
         ofPushStyle();
         ofPushMatrix();
         
-        ofSetColor(_color,255);
+        ofPushMatrix();
+        ofTranslate(_pos_shadow);
+        
+        ofColor c_=_color.lerp(_dest_color,_timer_color.valEaseOut());
+        
+        ofSetColor(c_,128);
         _mesh.draw();
+        ofPopMatrix();
+        
+        ofSetColor(c_,255);
+        _mesh.draw();
+        
         
         ofPopMatrix();
         ofPopStyle();
     }
     void update(float vel_,float dt_){
         PElement::update(0,dt_);
+        
+        _timer_color.update(dt_);
         //_timer_fadein.update(dt_);
+        if(ofRandom(10)<1) _pos_shadow=ofVec2f(20*ofNoise(-20,20),ofRandom(-20,20));
         
+        if(_timer_color.val()==1){
+            
+            _color=_dest_color;
+            _dest_color=ofColor(ofRandom(20),ofRandom(20),ofRandom(120,255));
+            
+            _timer_color=FrameTimer(ofRandom(1000,5000));
+            _timer_color.restart();
+        }
         
-        if(ofRandom(3)>1) return;
+        if(ofRandom(10)>1) return;
         
-        float ty=fmod(ofGetFrameNum(),_pos.y);
+        float ty=abs(sin(ofGetFrameNum()/200.0))*_pos.y;
         float sh=_size.y;
-        float tx=0;//ofGetHeight()/2+ofRandom(-10,10);
+        float tx=ofGetHeight()*ofRandom(-.1,.1);
         float sw=ofGetHeight()-tx;
         
         _mesh.clearTexCoords();
@@ -81,7 +114,7 @@ public:
 
 class PSunset:public PElement{
     ofMesh _mesh;
-    ofMesh _mesh_sea;
+    ofMesh _mesh_half;
     
     ofColor _color;
     FrameTimer _timer_fadein;
@@ -91,11 +124,23 @@ class PSunset:public PElement{
     ofColor _color_shadow;
 
     
+    FrameTimer _timer_drop;
+    FrameTimer _timer_move;
+    
+    
     float _seg;
 public:
+    
+    int _stage;
     PSunset(ofVec2f p,float w,float t){
         _color=ofColor(ofRandom(200,255),ofRandom(80,150),ofRandom(60));
         _color_shadow=ofColor(255-_color.r,255-_color.g,_color.b);
+        
+        _timer_drop=FrameTimer(t*.3);
+        _timer_drop.restart();
+        
+        _timer_move=FrameTimer(t*.7);
+//        _timer_move.restart();
         
         _pos=p;
         init(w);
@@ -113,8 +158,8 @@ public:
         _seg=64;
         float eth=TWO_PI/_seg;
         
-        float tx=ofGetHeight()/2;
-        float ty=ofGetHeight()/2;
+        float tx=ofGetHeight()/2+ofRandom(-20,20);
+        float ty=ofGetHeight()/2+ofRandom(-20,20);
         
         for(float i=0;i<=_seg;++i){
             float th=eth*i;
@@ -127,9 +172,20 @@ public:
             _mesh.addTexCoord(ofVec2f(tx+w*sin(th+eth),ty+w*cos(th+eth)));
         }
         
+        for(float i=0;i<=_seg/2;++i){
+            float th=HALF_PI+eth*i;
+            _mesh_half.addVertex(ofVec2f(0,0));
+            _mesh_half.addVertex(ofVec2f(w*sin(th),w*cos(th)));
+            _mesh_half.addVertex(ofVec2f(w*sin(th+eth),w*cos(th+eth)));
+            
+            _mesh_half.addTexCoord(ofVec2f(tx,ty));
+            _mesh_half.addTexCoord(ofVec2f(tx+w*sin(th),ty+w*cos(th)));
+            _mesh_half.addTexCoord(ofVec2f(tx+w*sin(th+eth),ty+w*cos(th+eth)));
+        }
+        
         _pos_shadow=ofVec2f(ofRandom(-20,20),ofRandom(-20,20));
         
-        
+        _stage=0;
        
     }
     
@@ -138,9 +194,13 @@ public:
         ofPushStyle();
         ofFill();
         
+//        float t=_timer_move.valEaseInOut();
         ofPushMatrix();
-        ofTranslate(_pos);
-        //ofRotate(-_vel.angle(ofVec2f(1,0)));
+        if(_stage==0) ofTranslate(_pos.x,ofMap(_timer_drop.valEaseIn(),0,1,-_size.y/2 ,ofGetHeight()/2));
+        else ofTranslate(_pos.x,ofGetHeight()/2+(ofGetHeight()/2+_size.y*2)*_timer_move.valEaseIn());
+        
+        float scl_=ofMap(_timer_move.valEaseIn(),0,1,.2,1.5);
+        ofScale(scl_,scl_);
         
        
         ofSetColor(_color,128*_timer_fadein.valEaseOut());
@@ -148,12 +208,16 @@ public:
         
         ofPushMatrix();
         ofTranslate(_pos_shadow);
-        _mesh.draw();
+        
+        if(_stage==0) _mesh.draw();
+        else _mesh_half.draw();
+        
         ofPopMatrix();
         
         ofSetColor(_color,255*_timer_fadein.valEaseOut());
-        _mesh.draw();
-  
+        
+        if(_stage==0) _mesh.draw();
+        else _mesh_half.draw();
     
         
        
@@ -171,7 +235,17 @@ public:
     void update(float vel_,float dt_){
         PElement::update(0,dt_);
         _timer_fadein.update(dt_);
-      
+        
+        _timer_drop.update(dt_);
+        if(_timer_drop.val()==1 && _stage==0){
+            _timer_move.restart();
+            _stage=1;
+        }
+        _timer_move.update(dt_);
+        
+        
+        
+        if(_timer_move.val()==1) _dead=true;
         
         if(ofRandom(10)>1) return;
         
