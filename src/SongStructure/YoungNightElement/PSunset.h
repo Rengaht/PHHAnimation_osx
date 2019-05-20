@@ -136,10 +136,10 @@ public:
         _color=ofColor(ofRandom(200,255),ofRandom(80,150),ofRandom(60));
         _color_shadow=ofColor(255-_color.r,255-_color.g,_color.b);
         
-        _timer_drop=FrameTimer(t*.3);
+        _timer_drop=FrameTimer(t*.25);
         _timer_drop.restart();
         
-        _timer_move=FrameTimer(t*.7);
+        _timer_move=FrameTimer(t*.75);
 //        _timer_move.restart();
         
         _pos=p;
@@ -196,7 +196,7 @@ public:
         
 //        float t=_timer_move.valEaseInOut();
         ofPushMatrix();
-        if(_stage==0) ofTranslate(_pos.x,ofMap(_timer_drop.valEaseIn(),0,1,-_size.y/2 ,ofGetHeight()/2));
+        if(_stage==0) ofTranslate(_pos.x,ofMap(_timer_drop.valEaseIn(),0,1,-_size.y/2,ofGetHeight()/2));
         else ofTranslate(_pos.x,ofGetHeight()/2+(ofGetHeight()/2+_size.y*2)*_timer_move.valEaseIn());
         
         float scl_=ofMap(_timer_move.valEaseIn(),0,1,.2,1.5);

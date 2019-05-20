@@ -9,6 +9,8 @@
 #define PSceneGrid_h
 
 #include "PGrid.h"
+#define MIN_LINE_INTERVAL 50
+#define MAX_LINE_INTERVAL 200
 
 class PSceneGrid:public PScene{
     
@@ -41,7 +43,7 @@ public:
             addGrid();
         }
         
-        _speed*=1.01;
+//        _speed*=1.01;
         if(_speed>3) _speed=3;
     }
     void draw(){
@@ -66,7 +68,7 @@ public:
         
         _idx_gridx=0;
         _idx_gridy=0;
-        _speed=1;
+        _speed=0;
         
     }
     void setEffect(int i){

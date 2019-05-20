@@ -9,8 +9,8 @@
 #define SceneSunset_h
 #include "PSunset.h"
 #include "PWave.h"
-#define MIN_SUN_INTERVAL 8000
-#define MAX_SUN_INTERVAL 20000
+#define MIN_SUN_INTERVAL 5000
+#define MAX_SUN_INTERVAL 10000
 
 class PSceneSunset:public PScene{
     
@@ -27,7 +27,7 @@ public:
     PSceneSunset():PScene(){
         reset();
         initTexture();
-        _mstage=1;
+        _mstage=2;
         
     }
     void update(float dt){
@@ -63,7 +63,7 @@ public:
         
         
         ofColor b_=_bgd.lerp(_dest_bgd,_timer_color.valEaseOut());
-        ofClear(b_);
+        ofClear(0);
 //                _tex_line.draw(0,0);
         
         _tex_line.getTexture().bind();
@@ -74,7 +74,7 @@ public:
       
         for(auto& e: _element){
             if(e->_layer==0 && ((PSunset*)e)->_stage==1) (*e).draw();
-            if(e->_layer==1) (*e).draw();
+            if(_idx_stage>0 && e->_layer==1) (*e).draw();
         }
         _tex_line.getTexture().unbind();
         
@@ -94,14 +94,14 @@ public:
         _timer_add.restart();
         
         
-        _bgd=ofColor(ofRandom(20,80),0,ofRandom(50,120));
-        _dest_bgd=ofColor(ofRandom(20,80),0,ofRandom(50,120));
+        _bgd=ofColor(ofRandom(20,80),0,ofRandom(50,80));
+        _dest_bgd=ofColor(ofRandom(20,80),0,ofRandom(50,80));
         _timer_color=FrameTimer(ofRandom(MIN_SUN_INTERVAL,MAX_SUN_INTERVAL));
         _timer_color.restart();
         
         _pos_line=0;
         
-        for(int i=0;i<3;++i) addWave();
+        for(int i=0;i<5;++i) addWave();
         
     }
     void setEffect(int i){
@@ -111,10 +111,17 @@ public:
                 reset();
                 _timer_add.restart();
                 break;
+            case 's':
+            case 'S':
+                addSun();
+                break;
             case '.':
             case '>':
-//                addLine();
-                addSun();
+                goNextStage();
+                break;
+            case ',':
+            case '<':
+                goPrevStage();
                 break;
         }
     }
@@ -139,10 +146,10 @@ public:
         _tex_line.end();
     }
     void addWave(){
-        int m=floor(ofRandom(1,3));
-        for(int i=0;i<m;++i){
-            _element.push_back(new PWave(ofVec2f(ofRandom(-.1,1.1)*ofGetWidth(),ofGetHeight()*ofRandom(.1,.3)),ofRandom(5,15),ofRandom(5000,10000)));
-        }
+//        int m=floor(ofRandom(1,3));
+//        for(int i=0;i<m;++i){
+            _element.push_back(new PWave(ofVec2f(ofRandom(-.1,1.1)*ofGetWidth(),ofGetHeight()*ofRandom(.1,.3)),ofRandom(5,15),100));
+//        }
     }
     void addSun(){
         float t=ofRandom(MIN_SUN_INTERVAL,MAX_SUN_INTERVAL);

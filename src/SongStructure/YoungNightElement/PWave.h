@@ -14,14 +14,15 @@ class PWave:public PElement{
     ofVec2f _vel;
     float _seg;
     ofColor _color;
-    FrameTimer _timer_fadein;
+    FrameTimer _timer_fadein,_timer_fadeout;
 public:
      PWave(ofVec2f p,float w,float t){
-         _color=ofColor(ofRandom(200,255));
+         _color=ofColor(0,0,ofRandom(20,120));
          _layer=1;
          _pos=p;
          _timer_fadein=FrameTimer(t);
-//         _timer_fadein.restart();
+         _timer_fadein.restart();
+         _timer_fadeout=FrameTimer(t);
          
          init(w);
      }
@@ -94,7 +95,7 @@ public:
         ofPushStyle();
         ofPushMatrix();
         ofTranslate(_pos);
-        ofSetColor(_color,255-255.0*_timer_fadein.valEaseOut());
+        ofSetColor(_color,255.0*_timer_fadein.valEaseOut()*(1.0-_timer_fadeout.valEaseOut()));
         _mesh.draw();
         
         ofPopMatrix();
@@ -109,14 +110,14 @@ public:
     void update(float vel_,float dt_){
         PElement::update(0,dt_);
         _timer_fadein.update(dt_);
+        _timer_fadeout.update(dt_);
         
-        if(!_dead){
-            if(ofRandom(100)<1){
-                _dead=true;
-                _timer_fadein.restart();
+        if(_timer_fadeout.val()==0){
+            if(ofRandom(200)<1){
+                _timer_fadeout.restart();
             }
         }
-//        if(_timer_fadein.val()==1) _dead=true;
+        if(_timer_fadeout.val()==1) _dead=true;
         
         if(ofRandom(10)>1) return;
         _pos.x+=ofRandom(-5,5);

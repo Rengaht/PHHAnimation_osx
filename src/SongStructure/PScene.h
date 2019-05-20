@@ -21,6 +21,7 @@ public:
     int _idx_stage;
     int _mstage;
     void goNextStage();
+    void goPrevStage();
 };
 
 

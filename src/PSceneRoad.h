@@ -214,6 +214,10 @@ public:
             case '>':
                 goNextStage();
                 break;
+            case ',':
+            case '<':
+                goPrevStage();
+                break;
             case 'a':
                 //                _timer_speed.restart();
                 _speed*=2;
