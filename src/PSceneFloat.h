@@ -92,6 +92,7 @@ public:
         _pos_planet=0;
         _pos_cloud=0;
         _pos_line=0;
+        _speed=10;
     }
     void setEffect(int i){
         switch(i){

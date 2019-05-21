@@ -77,6 +77,7 @@ public:
         
         _pos_sign=_pos_road=2*ofGetWidth();
         _pos_rock=-2*ofGetWidth();
+        _speed=10;
     }
     void setEffect(int i){
         switch(i){

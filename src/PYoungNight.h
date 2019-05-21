@@ -20,6 +20,11 @@ public:
         _scene.push_back(new PSceneSmoke());
         
 	}
+    void setScene(int index_){
+        if(index_<0 || index_>=_mscene) return;
+        _idx_scene=index_;
+        _scene[_idx_scene]->reset();
+    }
 
 };
 

@@ -193,7 +193,7 @@ public:
         int m=floor(ofRandom(3,8));
         
         float t=ofRandom(.3,.6)*2*w;
-        float ww=w/10.0;
+        float ww=ofRandom(4,10);
         float tty=ofRandom(1,1.5)*ww;
         float ttx=0;
         for(int i=0;i<m;++i){

@@ -19,6 +19,8 @@ class PDrink:public PElement{
     ofVec2f _pos_shadow;
     
     float _seg;
+    float _rad_texcoord;
+    float _height_drink;
 public:
     
     int _stage;
@@ -31,11 +33,12 @@ public:
         _timer_pin.restart();
         
         _vel=1;
+        _height_drink=ofRandom(10,50);
         
         _pos=p;
         init(w);
         
-        _layer=0;
+        _layer=1;
     }
     void init(float w){
         
@@ -46,9 +49,6 @@ public:
         _seg=64;
         float eth=TWO_PI/_seg;
         
-        //        int mm=floor(ofRandom(2,5));
-        
-        //        for(int x=0;x<mm;++x){
         float mr=w;
         _rad_texcoord=ofRandom(.5,1.2)*mr;
         
@@ -73,7 +73,7 @@ public:
         
         
         ofVec2f ph_(0,0);
-        ofVec2f pin_(0,w*1.2);
+        ofVec2f pin_(0,-w*1.2);
         //        pin_.rotate(-5);
         
         ofVec2f norm(pin_.y,-pin_.x);
@@ -120,27 +120,6 @@ public:
         _mesh_pinhead.addTexCoord(ofVec2f(w,w/10));
         
         
-        ph_=ph_+pin_*.9-norm*.5;
-        pin_*=.33;
-        norm*=2;
-        
-        _mesh_pinhead.addVertex(ofVec2f(ph_.x,ph_.y));
-        _mesh_pinhead.addVertex(ofVec2f(ph_.x+pin_.x,ph_.y+pin_.y));
-        _mesh_pinhead.addVertex(ofVec2f(ph_.x+norm.x,ph_.y+norm.y));
-        
-        _mesh_pinhead.addTexCoord(ofVec2f(0,0));
-        _mesh_pinhead.addTexCoord(ofVec2f(w,0));
-        _mesh_pinhead.addTexCoord(ofVec2f(w,w/10));
-        
-        _mesh_pinhead.addVertex(ofVec2f(ph_.x+pin_.x+norm.x,ph_.y+pin_.y+norm.y));
-        _mesh_pinhead.addVertex(ofVec2f(ph_.x+pin_.x,ph_.y+pin_.y));
-        _mesh_pinhead.addVertex(ofVec2f(ph_.x+norm.x,ph_.y+norm.y));
-        
-        _mesh_pinhead.addTexCoord(ofVec2f(0,0));
-        _mesh_pinhead.addTexCoord(ofVec2f(0,w/10));
-        _mesh_pinhead.addTexCoord(ofVec2f(w,w/10));
-        
-        
         
     }
     
@@ -153,28 +132,41 @@ public:
         ofPushMatrix();
         ofTranslate(_pos);
         ofPushMatrix();
-        ofRotate(_timer_rot.val()*_ang_rot*_vel);
+//        ofRotate(_timer_rot.val()*_ang_rot*_vel);
         
         ofSetColor(_color,128);
         ofPushMatrix();
         ofTranslate(_pos_shadow);
-        _mesh.draw();
+        for(int i=0;i<_height_drink*_anim_loop.valEaseOut();++i){
+            ofTranslate(0,-10);
+            _mesh.draw();
+        }
+        
         ofPopMatrix();
         
         ofSetColor(_color,255);
-        _mesh.draw();
+        for(int i=0;i<_height_drink*_anim_loop.valEaseOut();++i){
+            ofTranslate(0,-10);
+            _mesh.draw();
+        }
         ofPopMatrix();
         
-        ofPushMatrix();
-        ofScale(.1,.1);
-        ofSetColor(0,255);
-        _mesh.draw();
-        ofPopMatrix();
+        // draw border
+        ofPushStyle();
+        ofSetColor(255);
+        ofNoFill();
+            ofDrawCircle(0,0,_size.x);
+            ofDrawCircle(0,-_height_drink*10,_size.x);
+            ofDrawLine(_size.x,0,_size.x,-_height_drink*10);
+            ofDrawLine(-_size.x,0,-_size.x,-_height_drink*10);
+        ofPopStyle();
+        
+     
         
         
         ofPushMatrix();
         ofTranslate(-_size.x*1.1,-_size.y*1.2);
-        ofRotate(-_timer_pin.val()*_ang_pin);
+//        ofRotate(-_timer_pin.val()*_ang_pin);
         
         ofSetColor(255,128);
         ofPushMatrix();
@@ -197,20 +189,20 @@ public:
     }
     void reset(){
         _vel=ofRandom(2)<1?1:-1;
-        _ang_rot=ofRandom(.5,5)*360;
-        _ang_pin=ofRandom(0,10);
-        _timer_rot=FrameTimer(ofRandom(MIN_RECORD_INTERVAL,MAX_RECORD_INTERVAL),100);
+//        _ang_rot=ofRandom(.5,5)*360;
+//        _ang_pin=ofRandom(0,10);
+//        _timer_rot=FrameTimer(ofRandom(MIN_RECORD_INTERVAL,MAX_RECORD_INTERVAL),100);
         
     }
     void update(float vel_,float dt_){
         PElement::update(0,dt_);
-        _timer_rot.update(dt_);
+//        _timer_rot.update(dt_);
         _timer_pin.update(dt_);
-        if(_timer_rot.val()==1){
-            reset();
-            _timer_pin.restart();
-            _timer_rot.restart();
-        }
+//        if(_timer_rot.val()==1){
+//            reset();
+//            _timer_pin.restart();
+//            _timer_rot.restart();
+//        }
         
         if(ofRandom(10)>1) return;
         

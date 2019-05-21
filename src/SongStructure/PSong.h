@@ -42,21 +42,26 @@ public:
         _idx_scene=0;
         for(int i=0;i<_mscene;++i) (*_scene[i]).reset();
     }
-    void setScene(int index_){
+    virtual void setScene(int index_){
         if(index_<0 || index_>=_mscene) return;
         _idx_scene=index_;
     }
     void setEffect(int key_){
         switch(key_){
             case 'q':
+            case 'Q':
                 setScene(0);break;
             case 'w':
+            case 'W':
                 setScene(1);break;
             case 'e':
+            case 'E':
                 setScene(2);break;
             case 'r':
+            case 'R':
                 setScene(3);break;
             case 't':
+            case 'T':
                 setScene(4);break;
             default:
                 (*_scene[_idx_scene]).setEffect(key_);

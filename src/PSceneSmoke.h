@@ -10,6 +10,7 @@
 
 #define MIN_SMOKE_INTERVAL 50
 #include "PSmoke.h"
+#include "PDrink.h"
 
 class PSceneSmoke:public PScene{
     
@@ -39,10 +40,11 @@ public:
         _pos_smoke=ofVec2f(0,ofGetHeight());
         _ang_start=0;
         _ang_end=HALF_PI;
+        
     }
     void update(float dt){
         
-//        PScene::update(dt);
+        PScene::update(dt);
         
         _wind.x=cos(_timer_add.val()*(_ang_end-_ang_start)+_ang_start)*SMOKE_VEL*2;
         
@@ -51,7 +53,7 @@ public:
             else it++;
         }
         for(auto& p:_element){
-            ((PSmoke*)p)->update(_wind,dt);
+            if(p->_layer==0) ((PSmoke*)p)->update(_wind,dt);
         }
         _timer_add.update(dt);
         if(_timer_add.val()==1){
@@ -70,6 +72,8 @@ public:
             if(e->_layer==0) (*e).draw();
         _tex_line.getTexture().unbind();
         
+        for(auto& e: _element)
+            if(e->_layer==1) (*e).draw();
     }
     void reset(){
         PScene::reset();
@@ -79,12 +83,18 @@ public:
         _ang_end=ofRandom(_ang_start,PI);
         
         _element.clear();
+        
+//        _element.push_back(new PDrink(ofVec2f(ofGetWidth()/2,ofGetHeight()/2),ofRandom(50,200)));
 //        _pos_line=0;
     }
     void setEffect(int i){
         switch(i){
             case 'a':
             case 'A':
+                reset();
+                break;
+            case 's':
+            case 'S':
                 _pos_smoke.x=ofRandom(.3,.7)*ofGetWidth();
                 _ang_start=ofRandom(HALF_PI);
                 _ang_end=ofRandom(_ang_start,PI);
