@@ -1,40 +1,33 @@
 //
-//  PRecord.h
+//  PDrink.h
 //  PHHAnimation
 //
-//  Created by RengTsai on 2019/5/20.
+//  Created by RengTsai on 2019/5/21.
 //
 
-#ifndef PRecord_h
-#define PRecord_h
-#include "PElement.h"
+#ifndef PDrink_h
+#define PDrink_h
 
-#define MIN_RECORD_INTERVAL 500
-#define MAX_RECORD_INTERVAL 20000
-
-class PRecord:public PElement{
+class PDrink:public PElement{
     ofMesh _mesh;
     ofMesh _mesh_pinhead;
     
     ofColor _color;
-    FrameTimer _timer_rot,_timer_pin;
+    FrameTimer _timer_move,_timer_pin;
     float _vel;
-    float _ang_rot;
-    float _ang_pin;
     
     ofVec2f _pos_shadow;
     
     float _seg;
-    float _rad_texcoord;
 public:
     
     int _stage;
-    PRecord(ofVec2f p,float w){
-        _color=ofColor(ofRandom(200,255),ofRandom(80,150),ofRandom(60),120);
+    PDrink(ofVec2f p,float w){
+        _color=ofColor(ofRandom(200,255),ofRandom(20),ofRandom(60),120);
         
         reset();
-        _timer_pin=FrameTimer(ofRandom(100,500));
-        _timer_rot.restart();
+        _timer_pin=FrameTimer(100);
+        _timer_move.restart();
         _timer_pin.restart();
         
         _vel=1;
@@ -53,27 +46,27 @@ public:
         _seg=64;
         float eth=TWO_PI/_seg;
         
-//        int mm=floor(ofRandom(2,5));
+        //        int mm=floor(ofRandom(2,5));
         
-//        for(int x=0;x<mm;++x){
-            float mr=w;
-            _rad_texcoord=ofRandom(.5,1.2)*mr;
+        //        for(int x=0;x<mm;++x){
+        float mr=w;
+        _rad_texcoord=ofRandom(.5,1.2)*mr;
         
-            float tx=ofGetHeight()/2+ofRandom(-20,20);
-            float ty=ofGetHeight()/2+ofRandom(-20,20);
+        float tx=ofGetHeight()/2+ofRandom(-20,20);
+        float ty=ofGetHeight()/2+ofRandom(-20,20);
+        
+        
+        for(float i=0;i<=_seg;++i){
+            float th=eth*i;
+            _mesh.addVertex(ofVec2f(0,0));
+            _mesh.addVertex(ofVec2f(mr*sin(th),mr*cos(th)));
+            _mesh.addVertex(ofVec2f(mr*sin(th+eth),mr*cos(th+eth)));
             
-            
-            for(float i=0;i<=_seg;++i){
-                float th=eth*i;
-                _mesh.addVertex(ofVec2f(0,0));
-                _mesh.addVertex(ofVec2f(mr*sin(th),mr*cos(th)));
-                _mesh.addVertex(ofVec2f(mr*sin(th+eth),mr*cos(th+eth)));
-                
-                _mesh.addTexCoord(ofVec2f(tx,ty));
-                _mesh.addTexCoord(ofVec2f(tx+_rad_texcoord*sin(th),ty+_rad_texcoord*cos(th)));
-                _mesh.addTexCoord(ofVec2f(tx+_rad_texcoord*sin(th+eth),ty+_rad_texcoord*cos(th+eth)));
-            }
-//        }
+            _mesh.addTexCoord(ofVec2f(tx,ty));
+            _mesh.addTexCoord(ofVec2f(tx+_rad_texcoord*sin(th),ty+_rad_texcoord*cos(th)));
+            _mesh.addTexCoord(ofVec2f(tx+_rad_texcoord*sin(th+eth),ty+_rad_texcoord*cos(th+eth)));
+        }
+        //        }
         
         
         _pos_shadow=ofVec2f(ofRandom(-20,20),ofRandom(-20,20));
@@ -81,12 +74,12 @@ public:
         
         ofVec2f ph_(0,0);
         ofVec2f pin_(0,w*1.2);
-//        pin_.rotate(-5);
+        //        pin_.rotate(-5);
         
         ofVec2f norm(pin_.y,-pin_.x);
         norm.normalize();
         norm*=w/20;
-     
+        
         _mesh_pinhead.addVertex(ofVec2f(ph_.x,ph_.y));
         _mesh_pinhead.addVertex(ofVec2f(ph_.x+pin_.x,ph_.y+pin_.y));
         _mesh_pinhead.addVertex(ofVec2f(ph_.x+norm.x,ph_.y+norm.y));
@@ -147,7 +140,7 @@ public:
         _mesh_pinhead.addTexCoord(ofVec2f(0,w/10));
         _mesh_pinhead.addTexCoord(ofVec2f(w,w/10));
         
-       
+        
         
     }
     
@@ -165,28 +158,28 @@ public:
         ofSetColor(_color,128);
         ofPushMatrix();
         ofTranslate(_pos_shadow);
-            _mesh.draw();
+        _mesh.draw();
         ofPopMatrix();
         
         ofSetColor(_color,255);
-            _mesh.draw();
+        _mesh.draw();
         ofPopMatrix();
         
         ofPushMatrix();
         ofScale(.1,.1);
         ofSetColor(0,255);
-            _mesh.draw();
+        _mesh.draw();
         ofPopMatrix();
         
         
         ofPushMatrix();
         ofTranslate(-_size.x*1.1,-_size.y*1.2);
-        ofRotate(-_timer_pin.valEaseIn()*_ang_pin);
+        ofRotate(-_timer_pin.val()*_ang_pin);
         
         ofSetColor(255,128);
         ofPushMatrix();
         ofTranslate(_pos_shadow*.33);
-            _mesh_pinhead.draw();
+        _mesh_pinhead.draw();
         ofPopMatrix();
         ofSetColor(255);
         _mesh_pinhead.draw();
@@ -242,5 +235,4 @@ public:
         
     }
 };
-
-#endif /* PRecord_h */
+#endif /* PDrink_h */

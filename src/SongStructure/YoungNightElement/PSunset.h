@@ -9,7 +9,7 @@
 #define PSun_h
 
 #include "PElement.h"
-
+#include "PWave.h"
 
 class PSea:public PElement{
     ofMesh _mesh;
@@ -18,7 +18,7 @@ class PSea:public PElement{
     
     ofColor _dest_color;
     FrameTimer _timer_color;
-    
+   
     
 public:
     PSea(){
@@ -57,6 +57,9 @@ public:
         _mesh.addTexCoord(ofVec2f(ofGetHeight(),ty+sh));
         _mesh.addTexCoord(ofVec2f(0,ty+sh));
         _mesh.addTexCoord(ofVec2f(0,ty));
+        
+        int m=floor(ofRandom(3,6));
+       
     }
     void draw(){
         ofPushStyle();
@@ -128,6 +131,7 @@ class PSunset:public PElement{
     FrameTimer _timer_move;
     
     
+    list<PWave> _wave;
     float _seg;
 public:
     
@@ -186,7 +190,23 @@ public:
         _pos_shadow=ofVec2f(ofRandom(-20,20),ofRandom(-20,20));
         
         _stage=0;
-       
+        int m=floor(ofRandom(3,8));
+        
+        float t=ofRandom(.3,.6)*2*w;
+        float ww=w/10.0;
+        float tty=ofRandom(1,1.5)*ww;
+        float ttx=0;
+        for(int i=0;i<m;++i){
+            
+            PWave p(ofVec2f(ttx,tty),ww*ofRandom(.8,1.2),t,100*i+50,_timer_drop.getDue()*.9+ofRandom(100,200));
+            p._color=ofColor(_color,ofRandom(120,220));
+            p._auto_dead=false;
+            _wave.push_back(p);
+                         
+            ttx+=ofRandom(-.1,.1)*w;
+            tty+=ww*ofRandom(1,2.2);
+            t*=ofRandom(.6,.8);
+        }
     }
     
     void draw(){
@@ -217,8 +237,10 @@ public:
         ofSetColor(_color,255*_timer_fadein.valEaseOut());
         
         if(_stage==0) _mesh.draw();
-        else _mesh_half.draw();
-    
+        else{
+            _mesh_half.draw();
+        }
+        for(auto& t:_wave) t.draw();
         
        
         ofPopMatrix();
@@ -243,6 +265,13 @@ public:
         }
         _timer_move.update(dt_);
         
+        for(auto& w:_wave){
+            w.update(0,dt_);
+            if(ofRandom(3)<1){
+//                w._pos.x+=ofRandom(-.25,.25)*w._size.x;
+//                w._pos.y+=ofRandom(-.5,.5)*w._size.y;
+            }
+        }
         
         
         if(_timer_move.val()==1) _dead=true;

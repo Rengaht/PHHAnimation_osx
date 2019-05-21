@@ -296,7 +296,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "src/PSceneGrid.h"
-            timestampString = "580070253.955072"
+            timestampString = "580146973.091076"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "53"
@@ -312,7 +312,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "src/PSceneGrid.h"
-            timestampString = "580070253.955144"
+            timestampString = "580146973.0911371"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "67"
@@ -344,7 +344,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "src/PSceneSunset.h"
-            timestampString = "580070253.955213"
+            timestampString = "580146973.091254"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "71"
@@ -360,13 +360,45 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "src/SongStructure/YoungNightElement/PSunset.h"
-            timestampString = "580070253.955294"
+            timestampString = "580146973.0913121"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "221"
-            endingLineNumber = "221"
+            startingLineNumber = "241"
+            endingLineNumber = "241"
             landmarkName = "draw()"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PSunset::draw()"
+                  moduleName = "PHHAnimationDebug"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/reng/Documents/of_v0.9.8_osx_release/apps/myApps/PHHAnimation/src/SongStructure/YoungNightElement/PSunset.h"
+                  timestampString = "580143327.5634249"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "228"
+                  endingLineNumber = "228"
+                  offsetFromSymbolStart = "677">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PSunset::draw()"
+                  moduleName = "PHHAnimationDebug"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/reng/Documents/of_v0.9.8_osx_release/apps/myApps/PHHAnimation/src/SongStructure/YoungNightElement/PSunset.h"
+                  timestampString = "580143327.565497"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "228"
+                  endingLineNumber = "228"
+                  offsetFromSymbolStart = "743">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

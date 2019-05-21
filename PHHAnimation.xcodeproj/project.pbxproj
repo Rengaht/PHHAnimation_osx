@@ -126,6 +126,7 @@
 		A68B32D22291B196002ECF17 /* PSceneSunset.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSceneSunset.h; sourceTree = "<group>"; };
 		A68B32D32291B379002ECF17 /* PSunset.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSunset.h; sourceTree = "<group>"; };
 		A6D6F6162291C44200CBDFBF /* PWave.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PWave.h; sourceTree = "<group>"; };
+		A6E863E12294554500198B9C /* PDrink.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PDrink.h; sourceTree = "<group>"; };
 		A6E9AE8C2286FF68002BCAED /* PRoad.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PRoad.h; sourceTree = "<group>"; };
 		A6E9AE8D22872708002BCAED /* PCloud.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PCloud.h; sourceTree = "<group>"; };
 		A6E9AE8E2287B470002BCAED /* PTree.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PTree.h; sourceTree = "<group>"; };
@@ -300,6 +301,7 @@
 				A68B32D32291B379002ECF17 /* PSunset.h */,
 				A6D6F6162291C44200CBDFBF /* PWave.h */,
 				A63CD12E2293009E0022DC76 /* PRecord.h */,
+				A6E863E12294554500198B9C /* PDrink.h */,
 			);
 			name = YoungNightElement;
 			path = SongStructure/YoungNightElement;

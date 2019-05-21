@@ -148,7 +148,12 @@ public:
     void addWave(){
 //        int m=floor(ofRandom(1,3));
 //        for(int i=0;i<m;++i){
-            _element.push_back(new PWave(ofVec2f(ofRandom(-.1,1.1)*ofGetWidth(),ofGetHeight()*ofRandom(.1,.3)),ofRandom(5,15),100));
+        if(ofRandom(2)<1)
+            _element.push_back(new PWave(ofVec2f(ofRandom(-.1,1.1)*ofGetWidth(),ofGetHeight()*ofRandom(.1,.3)),ofRandom(2,8),ofRandom(30,100),100));
+        else{
+            auto p=new PWave(ofVec2f(ofRandom(-.1,1.1)*ofGetWidth(),ofGetHeight()*ofRandom(.5,1)),ofRandom(2,8),ofRandom(30,100),100);
+            _element.push_back(p);
+        }
 //        }
     }
     void addSun(){
