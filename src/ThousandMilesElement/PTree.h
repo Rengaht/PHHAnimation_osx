@@ -102,4 +102,77 @@ public:
     }
 };
 
+class PLamp:public PElement{
+    
+    list<ofPolyline> _mesh;
+    float _alpha;
+public:
+    PLamp(float dx_):PElement(){
+        _alpha=ofRandom(120);
+        _pos=ofVec2f(dx_,ofGetHeight()/2+50+ofRandom(-10,10));
+        _use_texture=true;
+        _layer=0;
+        
+        init();
+    }
+    void draw(){
+        
+        
+        ofPushStyle();
+        ofSetColor(_alpha);
+        ofSetLineWidth(WSTROKE*2);
+        
+        ofPushMatrix();
+        ofTranslate(_pos);
+        //ofRotate(90,vel.x,vel.y,vel.z);
+        for(auto& m: _mesh) m.draw();
+        ofPopMatrix();
+        
+        ofPopStyle();
+    }
+    void update(float vel_,float dt_){
+        _pos.x-=vel_;
+        if(_pos.x<-_size.x){
+            _dead=true;
+        }
+    }
+    void init(){
+        
+//        int m=ofRan.;
+        float r=ofGetHeight()/15*ofRandom(.8,1.2);
+        _size=ofVec2f(r*2,r*2);
+        ofVec2f v(0,-r);
+        v.rotate(ofRandom(-10,10));
+        
+//        for(int k=0;k<m;++k){
+        
+        ofPolyline tm_;
+        tm_.addVertex(0,0);
+        tm_.addVertex(v);
+        _mesh.push_back(tm_);
+        
+        ofVec2f dir(v);
+        dir.rotate(ofRandom(80,120));
+        dir*=ofRandom(.1,.3);
+        v+=ofVec2f(ofRandom(-2,2),ofRandom(-2,2));
+        
+        ofPolyline tm2_;
+        tm2_.addVertex(v);
+        tm2_.addVertex(v+dir);
+        
+        _mesh.push_back(tm2_);
+        
+        
+//        }
+    }
+    
+    
+    void end(){
+        
+    }
+    void reset(){
+        
+    }
+};
+
 #endif /* PTree_h */

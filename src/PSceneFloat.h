@@ -87,7 +87,13 @@ public:
 //            if(e->_layer==0) (*e).draw();
         
 //        _camera.end();
-        
+#ifdef DRAW_DEBUG
+        ofPushStyle();
+        ofSetColor(0);
+        ofDrawBitmapString("stage= "+ofToString(_idx_stage),50,30);
+        ofDrawBitmapString("speed= "+ofToString(_speed),120,30);
+        ofPopStyle();
+#endif
     }
     void reset(){
         PScene::reset();
@@ -99,8 +105,8 @@ public:
     void setEffect(int i){
         switch(i){
             case 'a':
-                _speed*=2;
-                _speed=ofClamp(_speed,10,80);
+                _speed*=3;
+                _speed=ofClamp(_speed,10,100);
                 break;
             case '.':
             case '>':

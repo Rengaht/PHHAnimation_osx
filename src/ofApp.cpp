@@ -25,6 +25,9 @@ void ofApp::setup(){
     ofSetVerticalSync(true);
     ofSetFrameRate(30);
     ofEnableTextureEdgeHack();
+    
+    _fbo_reader.setAsync(false);
+
 }
 
 //--------------------------------------------------------------
@@ -51,6 +54,7 @@ void ofApp::draw(){
 	_fbo.end();
 
     _fbo.readToPixels(_pixels);
+//    _fbo_reader.readToPixels(_fbo, _pixels);
     _NDIsender.send(_pixels);
 
 	_fbo.draw(0,0);

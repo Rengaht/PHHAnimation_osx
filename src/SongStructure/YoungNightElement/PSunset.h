@@ -50,12 +50,13 @@ public:
         _mesh.addVertex(ofVec2f(-sw*.1,y));
         
         float ty=ofRandom(0,y);
+        float sc=(float)ofGetHeight()/ofGetWidth();
         _mesh.addTexCoord(ofVec2f(0,ty));
         _mesh.addTexCoord(ofVec2f(ofGetHeight(),ty));
-        _mesh.addTexCoord(ofVec2f(ofGetHeight(),ty+sh));
+        _mesh.addTexCoord(ofVec2f(ofGetHeight(),ty+sh*sc));
         
-        _mesh.addTexCoord(ofVec2f(ofGetHeight(),ty+sh));
-        _mesh.addTexCoord(ofVec2f(0,ty+sh));
+        _mesh.addTexCoord(ofVec2f(ofGetHeight(),ty+sh*sc));
+        _mesh.addTexCoord(ofVec2f(0,ty+sh*sc));
         _mesh.addTexCoord(ofVec2f(0,ty));
         
         int m=floor(ofRandom(3,6));
@@ -104,13 +105,15 @@ public:
         float tx=ofGetHeight()*ofRandom(-.1,.1);
         float sw=ofGetHeight()-tx;
         
+        float sc=(float)ofGetHeight()/ofGetWidth();
+        
         _mesh.clearTexCoords();
         _mesh.addTexCoord(ofVec2f(tx,ty));
         _mesh.addTexCoord(ofVec2f(tx+sw,ty));
-        _mesh.addTexCoord(ofVec2f(tx+sw,ty+sh));
+        _mesh.addTexCoord(ofVec2f(tx+sw,ty+sh*sc));
         
-        _mesh.addTexCoord(ofVec2f(tx+sw,ty+sh));
-        _mesh.addTexCoord(ofVec2f(tx,ty+sh));
+        _mesh.addTexCoord(ofVec2f(tx+sw,ty+sh*sc));
+        _mesh.addTexCoord(ofVec2f(tx,ty+sh*sc));
         _mesh.addTexCoord(ofVec2f(tx,ty));
     }
 };

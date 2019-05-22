@@ -59,6 +59,10 @@ public:
         }
                 
     }
+    void reset(){
+        PSong::reset();
+        _effect_show=false;
+    }
 };
 
 

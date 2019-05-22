@@ -1,3 +1,4 @@
+ofxFastFboReader
 ofxJSON
 ofxNDI
 ofxPostProcessing

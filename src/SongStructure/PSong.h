@@ -38,7 +38,7 @@ public:
         ofPopStyle();
 #endif
     }
-    void reset(){
+    virtual void reset(){
         _idx_scene=0;
         for(int i=0;i<_mscene;++i) (*_scene[i]).reset();
     }

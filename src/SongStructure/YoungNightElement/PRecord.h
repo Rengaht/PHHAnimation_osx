@@ -84,8 +84,8 @@ public:
         
         _pos_shadow=ofVec2f(ofRandom(-20,20),ofRandom(-20,20));
         
-        
-        ofVec2f ph_(0,0);
+        float ss_=ofRandom(-.2,.2)*w;
+        ofVec2f ph_(ss_,0);
         ofVec2f pin_(0,w*1.2);
 //        pin_.rotate(-5);
         
@@ -109,12 +109,44 @@ public:
         _mesh_pinhead.addTexCoord(ofVec2f(0,w/10));
         _mesh_pinhead.addTexCoord(ofVec2f(w,w/10));
         
+//        ofVec2f pht_=ph_;
         
+        pin_.normalize();
+        pin_*=w/5;
+        norm.normalize();
+        norm*=w/5;
+        ph_-=norm*.5;
+//        pin_.rotate(-30);
+//        norm.rotate(-30);
+        
+        _mesh_pinhead.addVertex(ofVec2f(ph_.x,ph_.y));
+        _mesh_pinhead.addVertex(ofVec2f(ph_.x+pin_.x,ph_.y+pin_.y));
+        _mesh_pinhead.addVertex(ofVec2f(ph_.x+norm.x,ph_.y+norm.y));
+        
+        _mesh_pinhead.addTexCoord(ofVec2f(0,0));
+        _mesh_pinhead.addTexCoord(ofVec2f(w,0));
+        _mesh_pinhead.addTexCoord(ofVec2f(w,w/10));
+        
+        _mesh_pinhead.addVertex(ofVec2f(ph_.x+pin_.x+norm.x,ph_.y+pin_.y+norm.y));
+        _mesh_pinhead.addVertex(ofVec2f(ph_.x+pin_.x,ph_.y+pin_.y));
+        _mesh_pinhead.addVertex(ofVec2f(ph_.x+norm.x,ph_.y+norm.y));
+        
+        _mesh_pinhead.addTexCoord(ofVec2f(0,0));
+        _mesh_pinhead.addTexCoord(ofVec2f(0,w/10));
+        _mesh_pinhead.addTexCoord(ofVec2f(w,w/10));
+        
+        ph_=ofVec2f(ss_,0);
+        pin_.normalize();
+        pin_*=w*1.2;
         ph_=ph_+pin_;
+        
         pin_.normalize();
         pin_*=w*.6;
-        pin_.rotate(-30);
-        norm.rotate(-30);
+        float ang_=-ofRandom(10,40);
+        pin_.rotate(ang_);
+        norm.normalize();
+        norm*=w/20;
+        norm.rotate(ang_);
         
         _mesh_pinhead.addVertex(ofVec2f(ph_.x,ph_.y));
         _mesh_pinhead.addVertex(ofVec2f(ph_.x+pin_.x,ph_.y+pin_.y));

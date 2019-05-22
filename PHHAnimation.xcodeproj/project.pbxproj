@@ -11,12 +11,14 @@
 		114C00B13F753E59BB0984BB /* DofPass.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E837DEBFAEA1CAD833A377DF /* DofPass.cpp */; };
 		1E615236D6D182DED6C8A8B2 /* RenderPass.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 54F36382628E4D0FF07206D7 /* RenderPass.cpp */; };
 		222937AE58FD5FB49FAABDE8 /* ofxNDISender.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 88DF45D0623D6E64CBA08FBC /* ofxNDISender.cpp */; };
+		25CE30E01D7AE807068E6B20 /* PScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C05B13B4E5FD6076024AB036 /* PScene.cpp */; };
 		28AFD6FA9B9C885AFD9FF1C7 /* HorizontalTiltShifPass.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FAF7EF26FE0FF19EA6D9419D /* HorizontalTiltShifPass.cpp */; };
 		33DB731E964056D7E35604A7 /* FakeSSSPass.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C64B88209AF231B4FC8B4056 /* FakeSSSPass.cpp */; };
 		3A499904889C490DCF533C6E /* BloomPass.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D41ED8C8083845703AA1FDFA /* BloomPass.cpp */; };
 		4355FD81C3F9DDE40B10CE94 /* SSAOPass.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C127DCF305861E6D5D6332E6 /* SSAOPass.cpp */; };
 		4A2B684DF41F7779B2947319 /* RimHighlightingPass.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 74BDDD14F49833AD24862E87 /* RimHighlightingPass.cpp */; };
 		50FF7DC7EABF748EA644E040 /* ofxNDIGrabber.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 61A4A8851536DE056E198093 /* ofxNDIGrabber.cpp */; };
+		53190A79A30098D5561A23A8 /* ofxFastFboReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E785EF053BC4834BCFB218F3 /* ofxFastFboReader.cpp */; };
 		6A505EAE8088949A9180FFE7 /* GodRaysPass.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C07AAE715D8853EDA76BC909 /* GodRaysPass.cpp */; };
 		778DCA6792476E5B9F57F175 /* ConvolutionPass.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3AACD9661AF21261E24A05A4 /* ConvolutionPass.cpp */; };
 		79308B05C4D0A9B9E404FFED /* BleachBypassPass.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C5313A8CC477A5ECC0A7E4E8 /* BleachBypassPass.cpp */; };
@@ -25,7 +27,6 @@
 		813E52BD790CE4AAF527DCD4 /* ToonPass.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E547AB568F5E5027A880C47C /* ToonPass.cpp */; };
 		884CB4D049E35C51E949A565 /* KaleidoscopePass.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 108C4DB0C398388D00027091 /* KaleidoscopePass.cpp */; };
 		898CB0955CB42FEB5D750A5C /* VerticalTiltShifPass.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C2B73DCDAF417A486A343EF /* VerticalTiltShifPass.cpp */; };
-		A6E9AE982287D82A002BCAED /* PScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A6E9AE962287D82A002BCAED /* PScene.cpp */; };
 		AE65C02FEC934514466A8D67 /* EdgePass.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0AC8B4DE8CD341280FDE798A /* EdgePass.cpp */; };
 		B1747F12881D899DCA2647FC /* LUTPass.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F171898BD12F77CCAD29B7C1 /* LUTPass.cpp */; };
 		B58A80B21A55E254F48E6E13 /* DofAltPass.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 91F91C3BEAD0B3C2B92BB9A5 /* DofAltPass.cpp */; };
@@ -75,29 +76,40 @@
 		0217829E621698E1FD8D9876 /* EdgePass.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = EdgePass.h; path = ../../../addons/ofxPostProcessing/src/EdgePass.h; sourceTree = SOURCE_ROOT; };
 		044D4B2A1A607F88FEF2B610 /* ConvolutionPass.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ConvolutionPass.h; path = ../../../addons/ofxPostProcessing/src/ConvolutionPass.h; sourceTree = SOURCE_ROOT; };
 		0453A7C309E8AE8F8C1CC6E8 /* DofPass.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = DofPass.h; path = ../../../addons/ofxPostProcessing/src/DofPass.h; sourceTree = SOURCE_ROOT; };
+		048E10E0DAA197A8E727A758 /* PSceneSmoke.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = PSceneSmoke.h; path = src/PSceneSmoke.h; sourceTree = SOURCE_ROOT; };
 		0AC8B4DE8CD341280FDE798A /* EdgePass.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = EdgePass.cpp; path = ../../../addons/ofxPostProcessing/src/EdgePass.cpp; sourceTree = SOURCE_ROOT; };
 		0BC82FF9BACF54030E42E808 /* RGBShiftPass.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = RGBShiftPass.h; path = ../../../addons/ofxPostProcessing/src/RGBShiftPass.h; sourceTree = SOURCE_ROOT; };
 		0C7C9E7730BE318012C2EE23 /* Processing.NDI.compat.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = Processing.NDI.compat.h; path = ../../../addons/ofxNDI/libs/libndi/include/Processing.NDI.compat.h; sourceTree = SOURCE_ROOT; };
 		0D811F3E1817C17351F97CCF /* BleachBypassPass.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = BleachBypassPass.h; path = ../../../addons/ofxPostProcessing/src/BleachBypassPass.h; sourceTree = SOURCE_ROOT; };
 		108C4DB0C398388D00027091 /* KaleidoscopePass.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = KaleidoscopePass.cpp; path = ../../../addons/ofxPostProcessing/src/KaleidoscopePass.cpp; sourceTree = SOURCE_ROOT; };
 		118BFE9A1D4F86893470BA2D /* Processing.NDI.utilities.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = Processing.NDI.utilities.h; path = ../../../addons/ofxNDI/libs/libndi/include/Processing.NDI.utilities.h; sourceTree = SOURCE_ROOT; };
+		14C843B7BBAAE08BE044A417 /* PSceneSunset.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = PSceneSunset.h; path = src/PSceneSunset.h; sourceTree = SOURCE_ROOT; };
 		14F8B4286F653202B881D865 /* ToonPass.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ToonPass.h; path = ../../../addons/ofxPostProcessing/src/ToonPass.h; sourceTree = SOURCE_ROOT; };
 		1645F56257269CD0356320BD /* ofxJSON.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxJSON.h; path = ../../../addons/ofxJSON/src/ofxJSON.h; sourceTree = SOURCE_ROOT; };
+		18FD81332C09057CEB685A90 /* PCloud.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = PCloud.h; path = src/ThousandMilesElement/PCloud.h; sourceTree = SOURCE_ROOT; };
 		21BDE665988474F1B1F4D302 /* jsoncpp.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = jsoncpp.cpp; path = ../../../addons/ofxJSON/libs/jsoncpp/src/jsoncpp.cpp; sourceTree = SOURCE_ROOT; };
+		25F4CD8EFBC8B44986CD92AF /* PGrid.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = PGrid.h; path = src/SongStructure/YoungNightElement/PGrid.h; sourceTree = SOURCE_ROOT; };
 		26A541233BC6F736E758F718 /* ofxJSONElement.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxJSONElement.h; path = ../../../addons/ofxJSON/src/ofxJSONElement.h; sourceTree = SOURCE_ROOT; };
 		2BE782D7AEC00E59BE1F567F /* VerticalTiltShifPass.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = VerticalTiltShifPass.h; path = ../../../addons/ofxPostProcessing/src/VerticalTiltShifPass.h; sourceTree = SOURCE_ROOT; };
 		2C2B73DCDAF417A486A343EF /* VerticalTiltShifPass.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = VerticalTiltShifPass.cpp; path = ../../../addons/ofxPostProcessing/src/VerticalTiltShifPass.cpp; sourceTree = SOURCE_ROOT; };
 		2C7CF000B7B4F782C187C353 /* json.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = json.h; path = ../../../addons/ofxJSON/libs/jsoncpp/include/json/json.h; sourceTree = SOURCE_ROOT; };
+		32089E46D885F0B712355706 /* PSceneTunnel.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = PSceneTunnel.h; path = src/PSceneTunnel.h; sourceTree = SOURCE_ROOT; };
+		3401A66E1DEDA6A8C4E518CD /* PSceneRoad.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = PSceneRoad.h; path = src/PSceneRoad.h; sourceTree = SOURCE_ROOT; };
+		34730DAB94A1A3621C0B3028 /* PSign.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = PSign.h; path = src/ThousandMilesElement/PSign.h; sourceTree = SOURCE_ROOT; };
 		3AACD9661AF21261E24A05A4 /* ConvolutionPass.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ConvolutionPass.cpp; path = ../../../addons/ofxPostProcessing/src/ConvolutionPass.cpp; sourceTree = SOURCE_ROOT; };
 		3C39EA8CB1911093FD56F9ED /* HorizontalTiltShifPass.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = HorizontalTiltShifPass.h; path = ../../../addons/ofxPostProcessing/src/HorizontalTiltShifPass.h; sourceTree = SOURCE_ROOT; };
 		3F8A1741CC4F784D8B130531 /* HsbShiftPass.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = HsbShiftPass.cpp; path = ../../../addons/ofxPostProcessing/src/HsbShiftPass.cpp; sourceTree = SOURCE_ROOT; };
+		40C77BC68D769D6452F2A6A6 /* PPLine.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = PPLine.h; path = src/SongStructure/YoungNightElement/PPLine.h; sourceTree = SOURCE_ROOT; };
 		484F662699DFE8176E1B750F /* PostProcessing.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = PostProcessing.cpp; path = ../../../addons/ofxPostProcessing/src/PostProcessing.cpp; sourceTree = SOURCE_ROOT; };
 		48E4AC9F455A87F0448C70B2 /* ofxPostProcessing.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxPostProcessing.h; path = ../../../addons/ofxPostProcessing/src/ofxPostProcessing.h; sourceTree = SOURCE_ROOT; };
+		4941E03AEA43C02D21408C93 /* PSunset.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = PSunset.h; path = src/SongStructure/YoungNightElement/PSunset.h; sourceTree = SOURCE_ROOT; };
 		49CAE27DC1D138037CF88ACF /* FxaaPass.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = FxaaPass.h; path = ../../../addons/ofxPostProcessing/src/FxaaPass.h; sourceTree = SOURCE_ROOT; };
 		50800DAB6C4B18E4F92166FC /* KaleidoscopePass.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = KaleidoscopePass.h; path = ../../../addons/ofxPostProcessing/src/KaleidoscopePass.h; sourceTree = SOURCE_ROOT; };
+		517A21A53450CD1389098061 /* PRoadSign.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = PRoadSign.h; path = src/ThousandMilesElement/PRoadSign.h; sourceTree = SOURCE_ROOT; };
 		5201F6A7A19258B7F1CA2E43 /* RGBShiftPass.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = RGBShiftPass.cpp; path = ../../../addons/ofxPostProcessing/src/RGBShiftPass.cpp; sourceTree = SOURCE_ROOT; };
 		54F36382628E4D0FF07206D7 /* RenderPass.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = RenderPass.cpp; path = ../../../addons/ofxPostProcessing/src/RenderPass.cpp; sourceTree = SOURCE_ROOT; };
 		574AC2E791F0299D1BBF9919 /* Processing.NDI.Send.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = Processing.NDI.Send.h; path = ../../../addons/ofxNDI/libs/libndi/include/Processing.NDI.Send.h; sourceTree = SOURCE_ROOT; };
+		597B8C93CC6C95B40DFDDFA5 /* PMountain.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = PMountain.h; path = src/ThousandMilesElement/PMountain.h; sourceTree = SOURCE_ROOT; };
 		5BC56A60E911F7488A58830A /* NoiseWarpPass.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = NoiseWarpPass.cpp; path = ../../../addons/ofxPostProcessing/src/NoiseWarpPass.cpp; sourceTree = SOURCE_ROOT; };
 		61313493CDB52744E22A604D /* json-forwards.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = "json-forwards.h"; path = "../../../addons/ofxJSON/libs/jsoncpp/include/json/json-forwards.h"; sourceTree = SOURCE_ROOT; };
 		61A4A8851536DE056E198093 /* ofxNDIGrabber.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxNDIGrabber.cpp; path = ../../../addons/ofxNDI/src/ofxNDIGrabber.cpp; sourceTree = SOURCE_ROOT; };
@@ -107,57 +119,43 @@
 		6FA2B743D3BB21C05645016C /* Processing.NDI.structs.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = Processing.NDI.structs.h; path = ../../../addons/ofxNDI/libs/libndi/include/Processing.NDI.structs.h; sourceTree = SOURCE_ROOT; };
 		7462D018F6D6E407E598A021 /* PixelatePass.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = PixelatePass.cpp; path = ../../../addons/ofxPostProcessing/src/PixelatePass.cpp; sourceTree = SOURCE_ROOT; };
 		74BDDD14F49833AD24862E87 /* RimHighlightingPass.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = RimHighlightingPass.cpp; path = ../../../addons/ofxPostProcessing/src/RimHighlightingPass.cpp; sourceTree = SOURCE_ROOT; };
+		74EB26A2617E45A7823EE85C /* ofxFastFboReader.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxFastFboReader.h; path = ../../../addons/ofxFastFboReader/src/ofxFastFboReader.h; sourceTree = SOURCE_ROOT; };
 		756376F2CD9B663552247D28 /* ofxNDISender.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxNDISender.h; path = ../../../addons/ofxNDI/src/ofxNDISender.h; sourceTree = SOURCE_ROOT; };
+		7D2888CE970965789DA72CDE /* PSceneRecord.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = PSceneRecord.h; path = src/PSceneRecord.h; sourceTree = SOURCE_ROOT; };
+		88CF7C9EB7429AACD105A57D /* PPlanet.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = PPlanet.h; path = src/ThousandMilesElement/PPlanet.h; sourceTree = SOURCE_ROOT; };
 		88DF45D0623D6E64CBA08FBC /* ofxNDISender.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxNDISender.cpp; path = ../../../addons/ofxNDI/src/ofxNDISender.cpp; sourceTree = SOURCE_ROOT; };
 		8FF26475A3832F0C7CA7B357 /* Processing.NDI.Lib.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = Processing.NDI.Lib.h; path = ../../../addons/ofxNDI/libs/libndi/include/Processing.NDI.Lib.h; sourceTree = SOURCE_ROOT; };
 		91F91C3BEAD0B3C2B92BB9A5 /* DofAltPass.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = DofAltPass.cpp; path = ../../../addons/ofxPostProcessing/src/DofAltPass.cpp; sourceTree = SOURCE_ROOT; };
 		9222AE2464AE1CF72876A4ED /* LimbDarkeningPass.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = LimbDarkeningPass.cpp; path = ../../../addons/ofxPostProcessing/src/LimbDarkeningPass.cpp; sourceTree = SOURCE_ROOT; };
 		9425843AEC3118B8FDEF1B0B /* FxaaPass.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = FxaaPass.cpp; path = ../../../addons/ofxPostProcessing/src/FxaaPass.cpp; sourceTree = SOURCE_ROOT; };
+		963B3E2C772B4710A618E380 /* PElement.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = PElement.h; path = src/SongStructure/PElement.h; sourceTree = SOURCE_ROOT; };
+		9934B8671507D50B4C8A08CE /* PRock.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = PRock.h; path = src/ThousandMilesElement/PRock.h; sourceTree = SOURCE_ROOT; };
 		9AACF31BAE533E8F81AD4043 /* LUTPass.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = LUTPass.h; path = ../../../addons/ofxPostProcessing/src/LUTPass.h; sourceTree = SOURCE_ROOT; };
 		9E5CB960BB7B2984896C6AD4 /* Processing.NDI.Routing.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = Processing.NDI.Routing.h; path = ../../../addons/ofxNDI/libs/libndi/include/Processing.NDI.Routing.h; sourceTree = SOURCE_ROOT; };
-		A63CD12E2293009E0022DC76 /* PRecord.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PRecord.h; sourceTree = "<group>"; };
-		A64445C9228DC4F70095A0CB /* PFloatLine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PFloatLine.h; sourceTree = "<group>"; };
-		A68B32CB229158EE002ECF17 /* PSceneRecord.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSceneRecord.h; sourceTree = "<group>"; };
-		A68B32CC22915994002ECF17 /* PPLine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PPLine.h; sourceTree = "<group>"; };
-		A68B32CE22916619002ECF17 /* PSceneGrid.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSceneGrid.h; sourceTree = "<group>"; };
-		A68B32CF22916647002ECF17 /* PGrid.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PGrid.h; sourceTree = "<group>"; };
-		A68B32D02291732B002ECF17 /* PSmoke.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSmoke.h; sourceTree = "<group>"; };
-		A68B32D1229173E9002ECF17 /* PSceneSmoke.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSceneSmoke.h; sourceTree = "<group>"; };
-		A68B32D22291B196002ECF17 /* PSceneSunset.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSceneSunset.h; sourceTree = "<group>"; };
-		A68B32D32291B379002ECF17 /* PSunset.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSunset.h; sourceTree = "<group>"; };
-		A6D6F6162291C44200CBDFBF /* PWave.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PWave.h; sourceTree = "<group>"; };
-		A6E863E12294554500198B9C /* PDrink.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PDrink.h; sourceTree = "<group>"; };
-		A6E9AE8C2286FF68002BCAED /* PRoad.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PRoad.h; sourceTree = "<group>"; };
-		A6E9AE8D22872708002BCAED /* PCloud.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PCloud.h; sourceTree = "<group>"; };
-		A6E9AE8E2287B470002BCAED /* PTree.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PTree.h; sourceTree = "<group>"; };
-		A6E9AE8F2287CFAC002BCAED /* PSong.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSong.h; sourceTree = "<group>"; };
-		A6E9AE902287D09D002BCAED /* PSceneRoad.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSceneRoad.h; sourceTree = "<group>"; };
-		A6E9AE932287D6C2002BCAED /* PMountain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMountain.h; sourceTree = "<group>"; };
-		A6E9AE942287D6DD002BCAED /* PSceneTunnel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSceneTunnel.h; sourceTree = "<group>"; };
-		A6E9AE952287D82A002BCAED /* PElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PElement.h; sourceTree = "<group>"; };
-		A6E9AE962287D82A002BCAED /* PScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PScene.cpp; sourceTree = "<group>"; };
-		A6E9AE972287D82A002BCAED /* PScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PScene.h; sourceTree = "<group>"; };
-		A6E9AE992287DC4B002BCAED /* PRoadSign.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PRoadSign.h; sourceTree = "<group>"; };
-		A6E9AE9A22880856002BCAED /* PRock.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PRock.h; sourceTree = "<group>"; };
-		A6E9AE9B22881A63002BCAED /* PSign.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSign.h; sourceTree = "<group>"; };
-		A6E9AE9C228850C1002BCAED /* PSceneFloat.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSceneFloat.h; sourceTree = "<group>"; };
-		A6E9AE9D2288527C002BCAED /* PPlanet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PPlanet.h; sourceTree = "<group>"; };
+		A6E863E32295B5B300198B9C /* PCar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PCar.h; path = ThousandMilesElement/PCar.h; sourceTree = "<group>"; };
 		B2F3289AB405C5BB496FC247 /* PixelatePass.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = PixelatePass.h; path = ../../../addons/ofxPostProcessing/src/PixelatePass.h; sourceTree = SOURCE_ROOT; };
+		B466A27AB2F6AE0E1A36F494 /* PScene.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = PScene.h; path = src/SongStructure/PScene.h; sourceTree = SOURCE_ROOT; };
+		B4DF7AF207B0475C89CBB951 /* PTree.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = PTree.h; path = src/ThousandMilesElement/PTree.h; sourceTree = SOURCE_ROOT; };
 		B5CEF0B83529626C7E8410B7 /* BloomPass.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = BloomPass.h; path = ../../../addons/ofxPostProcessing/src/BloomPass.h; sourceTree = SOURCE_ROOT; };
+		B85F884642AFCC9CD4E3BCFE /* PWave.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = PWave.h; path = src/SongStructure/YoungNightElement/PWave.h; sourceTree = SOURCE_ROOT; };
 		BAA4E229C246D7B615917505 /* ZoomBlurPass.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ZoomBlurPass.h; path = ../../../addons/ofxPostProcessing/src/ZoomBlurPass.h; sourceTree = SOURCE_ROOT; };
 		BD9BAC818B142B39FDA40437 /* Processing.NDI.Lib.cplusplus.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = Processing.NDI.Lib.cplusplus.h; path = ../../../addons/ofxNDI/libs/libndi/include/Processing.NDI.Lib.cplusplus.h; sourceTree = SOURCE_ROOT; };
 		C04678B8C2449E1EE50E9FD6 /* Processing.NDI.DynamicLoad.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = Processing.NDI.DynamicLoad.h; path = ../../../addons/ofxNDI/libs/libndi/include/Processing.NDI.DynamicLoad.h; sourceTree = SOURCE_ROOT; };
+		C05B13B4E5FD6076024AB036 /* PScene.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = PScene.cpp; path = src/SongStructure/PScene.cpp; sourceTree = SOURCE_ROOT; };
 		C07AAE715D8853EDA76BC909 /* GodRaysPass.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = GodRaysPass.cpp; path = ../../../addons/ofxPostProcessing/src/GodRaysPass.cpp; sourceTree = SOURCE_ROOT; };
 		C127DCF305861E6D5D6332E6 /* SSAOPass.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = SSAOPass.cpp; path = ../../../addons/ofxPostProcessing/src/SSAOPass.cpp; sourceTree = SOURCE_ROOT; };
 		C5313A8CC477A5ECC0A7E4E8 /* BleachBypassPass.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = BleachBypassPass.cpp; path = ../../../addons/ofxPostProcessing/src/BleachBypassPass.cpp; sourceTree = SOURCE_ROOT; };
 		C64B88209AF231B4FC8B4056 /* FakeSSSPass.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = FakeSSSPass.cpp; path = ../../../addons/ofxPostProcessing/src/FakeSSSPass.cpp; sourceTree = SOURCE_ROOT; };
 		C69CBE4E4FA9530657A6CD23 /* FakeSSSPass.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = FakeSSSPass.h; path = ../../../addons/ofxPostProcessing/src/FakeSSSPass.h; sourceTree = SOURCE_ROOT; };
 		C80AD5E204660C2D7AF596A4 /* ofxNDI.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxNDI.h; path = ../../../addons/ofxNDI/src/ofxNDI.h; sourceTree = SOURCE_ROOT; };
+		C8CCF5C1E6D17D786F7BEA11 /* PSceneGrid.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = PSceneGrid.h; path = src/PSceneGrid.h; sourceTree = SOURCE_ROOT; };
 		CB8506A97611386329709DA6 /* PThousandMiles.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = PThousandMiles.h; path = src/PThousandMiles.h; sourceTree = SOURCE_ROOT; };
 		CC725CAE0A003458E5573DF9 /* GodRaysPass.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = GodRaysPass.h; path = ../../../addons/ofxPostProcessing/src/GodRaysPass.h; sourceTree = SOURCE_ROOT; };
 		CF77D28DCC4AA43EAB203230 /* Processing.NDI.FrameSync.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = Processing.NDI.FrameSync.h; path = ../../../addons/ofxNDI/libs/libndi/include/Processing.NDI.FrameSync.h; sourceTree = SOURCE_ROOT; };
 		D37E8BE2F38123EEA539BB76 /* PYoungNight.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = PYoungNight.h; path = src/PYoungNight.h; sourceTree = SOURCE_ROOT; };
 		D41ED8C8083845703AA1FDFA /* BloomPass.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = BloomPass.cpp; path = ../../../addons/ofxPostProcessing/src/BloomPass.cpp; sourceTree = SOURCE_ROOT; };
+		D6A4983F69FED3E364DF3726 /* PRoad.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = PRoad.h; path = src/ThousandMilesElement/PRoad.h; sourceTree = SOURCE_ROOT; };
+		D78486762BE89952D147BFAB /* PFloatLine.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = PFloatLine.h; path = src/ThousandMilesElement/PFloatLine.h; sourceTree = SOURCE_ROOT; };
 		DACACDF2F37260A0BFF826E2 /* PostProcessing.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = PostProcessing.h; path = ../../../addons/ofxPostProcessing/src/PostProcessing.h; sourceTree = SOURCE_ROOT; };
 		DEF2C306ED271A94AC33B144 /* HsbShiftPass.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = HsbShiftPass.h; path = ../../../addons/ofxPostProcessing/src/HsbShiftPass.h; sourceTree = SOURCE_ROOT; };
 		E4328143138ABC890047C5CB /* openFrameworksLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = openFrameworksLib.xcodeproj; path = ../../../libs/openFrameworksCompiled/project/osx/openFrameworksLib.xcodeproj; sourceTree = SOURCE_ROOT; };
@@ -167,18 +165,24 @@
 		E4B69E1E0A3A1BDC003C02F2 /* ofApp.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofApp.cpp; path = src/ofApp.cpp; sourceTree = SOURCE_ROOT; };
 		E4B69E1F0A3A1BDC003C02F2 /* ofApp.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ofApp.h; path = src/ofApp.h; sourceTree = SOURCE_ROOT; };
 		E4B6FCAD0C3E899E008CF71C /* openFrameworks-Info.plist */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.plist.xml; path = "openFrameworks-Info.plist"; sourceTree = "<group>"; };
+		E4BE1CC218544B3739D945BD /* PSong.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = PSong.h; path = src/SongStructure/PSong.h; sourceTree = SOURCE_ROOT; };
 		E4EB691F138AFCF100A09F29 /* CoreOF.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = CoreOF.xcconfig; path = ../../../libs/openFrameworksCompiled/project/osx/CoreOF.xcconfig; sourceTree = SOURCE_ROOT; };
 		E4EB6923138AFD0F00A09F29 /* Project.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Project.xcconfig; sourceTree = "<group>"; };
 		E547AB568F5E5027A880C47C /* ToonPass.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ToonPass.cpp; path = ../../../addons/ofxPostProcessing/src/ToonPass.cpp; sourceTree = SOURCE_ROOT; };
+		E785EF053BC4834BCFB218F3 /* ofxFastFboReader.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxFastFboReader.cpp; path = ../../../addons/ofxFastFboReader/src/ofxFastFboReader.cpp; sourceTree = SOURCE_ROOT; };
+		E7B79E47D1937D384C2C3D02 /* PSceneFloat.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = PSceneFloat.h; path = src/PSceneFloat.h; sourceTree = SOURCE_ROOT; };
 		E837DEBFAEA1CAD833A377DF /* DofPass.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = DofPass.cpp; path = ../../../addons/ofxPostProcessing/src/DofPass.cpp; sourceTree = SOURCE_ROOT; };
 		E84ADD8443D82E35430385B7 /* RimHighlightingPass.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = RimHighlightingPass.h; path = ../../../addons/ofxPostProcessing/src/RimHighlightingPass.h; sourceTree = SOURCE_ROOT; };
 		E85C05C6C4DA77598E8AB0DB /* Processing.NDI.Find.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = Processing.NDI.Find.h; path = ../../../addons/ofxNDI/libs/libndi/include/Processing.NDI.Find.h; sourceTree = SOURCE_ROOT; };
 		EA2A13781712672758AFD432 /* DofAltPass.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = DofAltPass.h; path = ../../../addons/ofxPostProcessing/src/DofAltPass.h; sourceTree = SOURCE_ROOT; };
+		EC6A69CC31265D030FCDA94C /* PRecord.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = PRecord.h; path = src/SongStructure/YoungNightElement/PRecord.h; sourceTree = SOURCE_ROOT; };
 		EE45C0AD67AA97C5F268374A /* Processing.NDI.Recv.ex.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = Processing.NDI.Recv.ex.h; path = ../../../addons/ofxNDI/libs/libndi/include/Processing.NDI.Recv.ex.h; sourceTree = SOURCE_ROOT; };
 		EF8D27B3DEDC121DE85F5B7B /* ZoomBlurPass.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ZoomBlurPass.cpp; path = ../../../addons/ofxPostProcessing/src/ZoomBlurPass.cpp; sourceTree = SOURCE_ROOT; };
 		F06A0A8515AB73A74C45EA66 /* ofxNDIGrabber.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxNDIGrabber.h; path = ../../../addons/ofxNDI/src/ofxNDIGrabber.h; sourceTree = SOURCE_ROOT; };
 		F171898BD12F77CCAD29B7C1 /* LUTPass.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = LUTPass.cpp; path = ../../../addons/ofxPostProcessing/src/LUTPass.cpp; sourceTree = SOURCE_ROOT; };
 		F2B099E6BD1199664C48B177 /* ofxJSONElement.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxJSONElement.cpp; path = ../../../addons/ofxJSON/src/ofxJSONElement.cpp; sourceTree = SOURCE_ROOT; };
+		F4DF30DDE20B5B466F5FF3E0 /* PSmoke.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = PSmoke.h; path = src/SongStructure/YoungNightElement/PSmoke.h; sourceTree = SOURCE_ROOT; };
+		F59FE95388A2FB35FEF6C061 /* PDrink.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = PDrink.h; path = src/SongStructure/YoungNightElement/PDrink.h; sourceTree = SOURCE_ROOT; };
 		F5DB1AC24B8010FC3C556AAC /* RenderPass.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = RenderPass.h; path = ../../../addons/ofxPostProcessing/src/RenderPass.h; sourceTree = SOURCE_ROOT; };
 		F98D3119B492CAFA65819DDA /* ContrastPass.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ContrastPass.h; path = ../../../addons/ofxPostProcessing/src/ContrastPass.h; sourceTree = SOURCE_ROOT; };
 		F9E69702DE151AD76690D1CF /* NoiseWarpPass.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = NoiseWarpPass.h; path = ../../../addons/ofxPostProcessing/src/NoiseWarpPass.h; sourceTree = SOURCE_ROOT; };
@@ -199,6 +203,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		10D99DE34BE3232A24E03158 /* SongStructure */ = {
+			isa = PBXGroup;
+			children = (
+				E4BE1CC218544B3739D945BD /* PSong.h */,
+				C05B13B4E5FD6076024AB036 /* PScene.cpp */,
+				B466A27AB2F6AE0E1A36F494 /* PScene.h */,
+				963B3E2C772B4710A618E380 /* PElement.h */,
+			);
+			name = SongStructure;
+			sourceTree = "<group>";
+		};
 		1BB93245A4EB468630AA26C4 /* include */ = {
 			isa = PBXGroup;
 			children = (
@@ -246,6 +261,23 @@
 			name = src;
 			sourceTree = "<group>";
 		};
+		2D3EFFB587B92FB4FF503C32 /* ThousandMilesElement */ = {
+			isa = PBXGroup;
+			children = (
+				B4DF7AF207B0475C89CBB951 /* PTree.h */,
+				517A21A53450CD1389098061 /* PRoadSign.h */,
+				597B8C93CC6C95B40DFDDFA5 /* PMountain.h */,
+				D6A4983F69FED3E364DF3726 /* PRoad.h */,
+				9934B8671507D50B4C8A08CE /* PRock.h */,
+				18FD81332C09057CEB685A90 /* PCloud.h */,
+				D78486762BE89952D147BFAB /* PFloatLine.h */,
+				34730DAB94A1A3621C0B3028 /* PSign.h */,
+				88CF7C9EB7429AACD105A57D /* PPlanet.h */,
+				A6E863E32295B5B300198B9C /* PCar.h */,
+			);
+			name = ThousandMilesElement;
+			sourceTree = "<group>";
+		};
 		34159355A5E930002AC9132E /* ofxNDI */ = {
 			isa = PBXGroup;
 			children = (
@@ -265,6 +297,20 @@
 				61A4A8851536DE056E198093 /* ofxNDIGrabber.cpp */,
 			);
 			name = src;
+			sourceTree = "<group>";
+		};
+		4BD4022223E9E0E509433C06 /* YoungNightElement */ = {
+			isa = PBXGroup;
+			children = (
+				25F4CD8EFBC8B44986CD92AF /* PGrid.h */,
+				F59FE95388A2FB35FEF6C061 /* PDrink.h */,
+				4941E03AEA43C02D21408C93 /* PSunset.h */,
+				EC6A69CC31265D030FCDA94C /* PRecord.h */,
+				40C77BC68D769D6452F2A6A6 /* PPLine.h */,
+				B85F884642AFCC9CD4E3BCFE /* PWave.h */,
+				F4DF30DDE20B5B466F5FF3E0 /* PSmoke.h */,
+			);
+			name = YoungNightElement;
 			sourceTree = "<group>";
 		};
 		58AD3BD71B781D9BC25763C8 /* json */ = {
@@ -292,46 +338,12 @@
 			name = jsoncpp;
 			sourceTree = "<group>";
 		};
-		A68B32CD2291599D002ECF17 /* YoungNightElement */ = {
+		AD6A40A761D375590DCD858F /* ofxFastFboReader */ = {
 			isa = PBXGroup;
 			children = (
-				A68B32CC22915994002ECF17 /* PPLine.h */,
-				A68B32CF22916647002ECF17 /* PGrid.h */,
-				A68B32D02291732B002ECF17 /* PSmoke.h */,
-				A68B32D32291B379002ECF17 /* PSunset.h */,
-				A6D6F6162291C44200CBDFBF /* PWave.h */,
-				A63CD12E2293009E0022DC76 /* PRecord.h */,
-				A6E863E12294554500198B9C /* PDrink.h */,
+				F5EF49FE7FE95E581FD15846 /* src */,
 			);
-			name = YoungNightElement;
-			path = SongStructure/YoungNightElement;
-			sourceTree = "<group>";
-		};
-		A6E9AE912287D63B002BCAED /* ThousandMilesElement */ = {
-			isa = PBXGroup;
-			children = (
-				A6E9AE932287D6C2002BCAED /* PMountain.h */,
-				A6E9AE8E2287B470002BCAED /* PTree.h */,
-				A6E9AE8C2286FF68002BCAED /* PRoad.h */,
-				A6E9AE8D22872708002BCAED /* PCloud.h */,
-				A6E9AE992287DC4B002BCAED /* PRoadSign.h */,
-				A6E9AE9B22881A63002BCAED /* PSign.h */,
-				A6E9AE9A22880856002BCAED /* PRock.h */,
-				A6E9AE9D2288527C002BCAED /* PPlanet.h */,
-				A64445C9228DC4F70095A0CB /* PFloatLine.h */,
-			);
-			path = ThousandMilesElement;
-			sourceTree = "<group>";
-		};
-		A6E9AE922287D64C002BCAED /* SongStructure */ = {
-			isa = PBXGroup;
-			children = (
-				A6E9AE8F2287CFAC002BCAED /* PSong.h */,
-				A6E9AE972287D82A002BCAED /* PScene.h */,
-				A6E9AE962287D82A002BCAED /* PScene.cpp */,
-				A6E9AE952287D82A002BCAED /* PElement.h */,
-			);
-			path = SongStructure;
+			name = ofxFastFboReader;
 			sourceTree = "<group>";
 		};
 		AFF78A8EB1A778F89BAD1809 /* src */ = {
@@ -395,6 +407,7 @@
 		BB4B014C10F69532006C3DED /* addons */ = {
 			isa = PBXGroup;
 			children = (
+				AD6A40A761D375590DCD858F /* ofxFastFboReader */,
 				2865DAEF86B1907A704CA70B /* ofxJSON */,
 				34159355A5E930002AC9132E /* ofxNDI */,
 				BD52EC6DCE402D90869A80A1 /* ofxPostProcessing */,
@@ -461,19 +474,19 @@
 				E4B69E1D0A3A1BDC003C02F2 /* main.cpp */,
 				E4B69E1E0A3A1BDC003C02F2 /* ofApp.cpp */,
 				E4B69E1F0A3A1BDC003C02F2 /* ofApp.h */,
+				4BD4022223E9E0E509433C06 /* YoungNightElement */,
+				2D3EFFB587B92FB4FF503C32 /* ThousandMilesElement */,
+				10D99DE34BE3232A24E03158 /* SongStructure */,
+				C8CCF5C1E6D17D786F7BEA11 /* PSceneGrid.h */,
 				CB8506A97611386329709DA6 /* PThousandMiles.h */,
-				A6E9AE902287D09D002BCAED /* PSceneRoad.h */,
-				A6E9AE942287D6DD002BCAED /* PSceneTunnel.h */,
-				A6E9AE9C228850C1002BCAED /* PSceneFloat.h */,
-				A6E9AE912287D63B002BCAED /* ThousandMilesElement */,
-				A6E9AE922287D64C002BCAED /* SongStructure */,
+				3401A66E1DEDA6A8C4E518CD /* PSceneRoad.h */,
 				E46AF89C80EF02D241F4DC5B /* FrameTimer.h */,
 				D37E8BE2F38123EEA539BB76 /* PYoungNight.h */,
-				A68B32CD2291599D002ECF17 /* YoungNightElement */,
-				A68B32CB229158EE002ECF17 /* PSceneRecord.h */,
-				A68B32CE22916619002ECF17 /* PSceneGrid.h */,
-				A68B32D1229173E9002ECF17 /* PSceneSmoke.h */,
-				A68B32D22291B196002ECF17 /* PSceneSunset.h */,
+				048E10E0DAA197A8E727A758 /* PSceneSmoke.h */,
+				E7B79E47D1937D384C2C3D02 /* PSceneFloat.h */,
+				7D2888CE970965789DA72CDE /* PSceneRecord.h */,
+				32089E46D885F0B712355706 /* PSceneTunnel.h */,
+				14C843B7BBAAE08BE044A417 /* PSceneSunset.h */,
 			);
 			path = src;
 			sourceTree = SOURCE_ROOT;
@@ -493,6 +506,15 @@
 				977A836DD2C489CCC5E330FF /* jsoncpp */,
 			);
 			name = libs;
+			sourceTree = "<group>";
+		};
+		F5EF49FE7FE95E581FD15846 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				74EB26A2617E45A7823EE85C /* ofxFastFboReader.h */,
+				E785EF053BC4834BCFB218F3 /* ofxFastFboReader.cpp */,
+			);
+			name = src;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -584,6 +606,8 @@
 			files = (
 				E4B69E200A3A1BDC003C02F2 /* main.cpp in Sources */,
 				E4B69E210A3A1BDC003C02F2 /* ofApp.cpp in Sources */,
+				25CE30E01D7AE807068E6B20 /* PScene.cpp in Sources */,
+				53190A79A30098D5561A23A8 /* ofxFastFboReader.cpp in Sources */,
 				BEDFEE7400C58EA4E412B757 /* ofxJSONElement.cpp in Sources */,
 				FB84AAF8D1B7A95266DB5C09 /* jsoncpp.cpp in Sources */,
 				222937AE58FD5FB49FAABDE8 /* ofxNDISender.cpp in Sources */,
@@ -607,7 +631,6 @@
 				28AFD6FA9B9C885AFD9FF1C7 /* HorizontalTiltShifPass.cpp in Sources */,
 				4355FD81C3F9DDE40B10CE94 /* SSAOPass.cpp in Sources */,
 				4A2B684DF41F7779B2947319 /* RimHighlightingPass.cpp in Sources */,
-				A6E9AE982287D82A002BCAED /* PScene.cpp in Sources */,
 				884CB4D049E35C51E949A565 /* KaleidoscopePass.cpp in Sources */,
 				813E52BD790CE4AAF527DCD4 /* ToonPass.cpp in Sources */,
 				7AB51F1099DC01486D18FAF6 /* LimbDarkeningPass.cpp in Sources */,
@@ -650,6 +673,10 @@
 				HEADER_SEARCH_PATHS = (
 					"$(OF_CORE_HEADERS)",
 					src,
+					src/SongStructure,
+					src/SongStructure/YoungNightElement,
+					src/ThousandMilesElement,
+					../../../addons/ofxFastFboReader/src,
 					../../../addons/ofxJSON/libs,
 					../../../addons/ofxJSON/libs/jsoncpp,
 					../../../addons/ofxJSON/libs/jsoncpp/include,
@@ -700,6 +727,10 @@
 				HEADER_SEARCH_PATHS = (
 					"$(OF_CORE_HEADERS)",
 					src,
+					src/SongStructure,
+					src/SongStructure/YoungNightElement,
+					src/ThousandMilesElement,
+					../../../addons/ofxFastFboReader/src,
 					../../../addons/ofxJSON/libs,
 					../../../addons/ofxJSON/libs/jsoncpp,
 					../../../addons/ofxJSON/libs/jsoncpp/include,
@@ -743,6 +774,10 @@
 				HEADER_SEARCH_PATHS = (
 					"$(OF_CORE_HEADERS)",
 					src,
+					src/SongStructure,
+					src/SongStructure/YoungNightElement,
+					src/ThousandMilesElement,
+					../../../addons/ofxFastFboReader/src,
 					../../../addons/ofxJSON/libs,
 					../../../addons/ofxJSON/libs/jsoncpp,
 					../../../addons/ofxJSON/libs/jsoncpp/include,
@@ -786,6 +821,10 @@
 				HEADER_SEARCH_PATHS = (
 					"$(OF_CORE_HEADERS)",
 					src,
+					src/SongStructure,
+					src/SongStructure/YoungNightElement,
+					src/ThousandMilesElement,
+					../../../addons/ofxFastFboReader/src,
 					../../../addons/ofxJSON/libs,
 					../../../addons/ofxJSON/libs/jsoncpp,
 					../../../addons/ofxJSON/libs/jsoncpp/include,

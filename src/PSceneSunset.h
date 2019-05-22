@@ -202,7 +202,7 @@ public:
     }
     void addSun(){
         float t=ofRandom(MIN_SUN_INTERVAL,MAX_SUN_INTERVAL);
-        _element.push_front(new PSunset(ofVec2f(ofGetWidth()*ofRandom(.2,.8),ofGetHeight()/2),ofGetHeight()*ofRandom(.2,.5),t));
+        _element.push_front(new PSunset(ofVec2f(ofGetWidth()/4*(floor(ofRandom(4))+.5)+ofGetWidth()*ofRandom(-.1,.1),ofGetHeight()/2),ofGetHeight()*ofRandom(.2,.5),t));
         _timer_add=FrameTimer(ofRandom(.7,1)*t);
         _timer_add.restart();
     }

@@ -1,10 +1,12 @@
 #pragma once
 
 
-#define DRAW_DEBUG
+//#define DRAW_DEBUG
 #define WSTROKE 2
 #include "ofMain.h"
 #include "ofxNDISender.h"
+#include "ofxFastFboReader.h"
+
 #include "PYoungNight.h"
 #include "PThousandMiles.h"
 
@@ -36,4 +38,6 @@ class ofApp : public ofBaseApp{
 		ofFbo _fbo;
     
         bool _recording;
+    
+    ofxFastFboReader _fbo_reader;
 };

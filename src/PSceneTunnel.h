@@ -89,7 +89,7 @@ public:
             case 'A':
                 //                _timer_speed.restart();
                 _speed*=2;
-                _speed=ofClamp(_speed,10,80);
+                _speed=ofClamp(_speed,10,100);
                 break;
             case '.':
             case '>':

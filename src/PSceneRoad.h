@@ -13,24 +13,28 @@
 #include "PRoad.h"
 #include "PCloud.h"
 #include "PTree.h"
+#include "PCar.h"
 
 class PSceneRoad:public PScene{
     float _pos_mountain=0;
     ofVec2f _pos_road;
     float _pos_cloud;
     float _pos_tree;
+    float _pos_lamp;
     
     FrameTimer _timer_speed;
+    
+    float _pos_car;
     
 public:
     static float _speed;
     ofFbo _tex_mountain;
-    ofFbo _tex_cloud;
+    ofFbo _tex_cloud,_tex_car;
     
     
     PSceneRoad():PScene(){
         _speed=10;
-        _mstage=5;
+        _mstage=6;
         
         _timer_speed=FrameTimer(1000);
         
@@ -44,7 +48,7 @@ public:
         
         ofBackground(255);
         
-        //        _tex_cloud.draw(0,0);
+//                _tex_car.draw(0,0);
         
         ofDisableArbTex();
         
@@ -55,10 +59,13 @@ public:
         
         _tex_mountain.getTexture().bind();
         for(auto& e: _element)
-            if(e->_layer==1)
-                (*e).draw();
+            if(e->_layer==1) (*e).draw();
         _tex_mountain.getTexture().unbind();
         
+        _tex_car.getTexture().bind();
+        for(auto& e: _element)
+            if(e->_layer==3) (*e).draw();
+        _tex_car.getTexture().unbind();
         
         for(auto& e: _element)
             if(e->_layer==0) (*e).draw();
@@ -89,6 +96,9 @@ public:
                 case 2:
                     (**it).update(_speed*.5,dt);
                     break;
+                case 3:
+                    (**it).update(_speed*2.5,dt);
+                    break;
             }
             if((**it)._dead) _element.erase(it++);
             else it++;
@@ -106,10 +116,17 @@ public:
             _pos_tree-=_speed;
             addTree();
         }
+        if(_idx_stage>4){
+            _pos_car+=_speed*2.5;
+            addCar();
+            _pos_lamp-=_speed;
+            addLamp();
+        }
         if(_idx_stage>0){
             _pos_road.x-=_speed*1.2;
             addRoad();
         }
+        
         
         if(_speed>10) _speed-=.5;
         //        if(_timer_speed.val()==1) _timer_speed.reset();
@@ -141,6 +158,16 @@ public:
             _pos_tree+=p->_size.x*ofRandom(-.2,.9);
         }
     }
+    void addLamp(){
+        while(_pos_lamp<ofGetWidth()*1.2){
+            if(ofRandom(4)<1) _pos_lamp+=ofRandom(.3,.8)*ofGetWidth();
+            
+            auto p=new PLamp(_pos_lamp);
+            
+            _element.push_back(p);
+            _pos_lamp+=ofGetWidth()*ofRandom(.1,.5);
+        }
+    }
     void addRoad(){
         while(_pos_road.x<ofGetWidth()*1.2){
             if(ofRandom(5)<1) _pos_road+=ofVec2f(ofRandom(-250,25),ofRandom(-5,5));
@@ -148,6 +175,15 @@ public:
             auto p=new PRoad(_pos_road);
             _element.push_back(p);
             _pos_road+=p->_size;
+        }
+    }
+    void addCar(){
+        while(_pos_car>0){
+            if(ofRandom(5)<1) _pos_car+=ofRandom(-250,25);
+            
+            auto p=new PCar(_pos_car);
+            _element.push_back(p);
+            _pos_car-=p->_size.x*ofRandom(10,30);
         }
     }
     void initTexture(){
@@ -201,13 +237,30 @@ public:
                 ofDrawLine(i*m+dx*m,j*m-dy*m,(i)*m+dy*m,(j+1)*m+dx*m);
             }
         _tex_mountain.end();
+        
+        _tex_car.allocate(ofGetHeight(),ofGetHeight(),GL_RGBA);
+        c=240;
+        m=ofGetHeight()/c;
+        
+        _tex_car.begin();
+        ofClear(255,255,255,0);
+        ofSetColor(0);
+        ofSetLineWidth(WSTROKE*2);
+        
+        for(int i=0;i<c;++i)
+            for(int j=0;j<c;++j){
+                float dx=ofNoise(i/10.0,j/10.0)-.5;
+                float dy=ofRandom(-1,1)*.5;
+                ofDrawLine(i*m,j*m-dy*m,(i)*m,(j+1)*m+dx*m);
+            }
+        _tex_car.end();
     }
     void reset(){
         PScene::reset();
         
-        _pos_tree=_pos_mountain=_pos_cloud=ofGetWidth();
+        _pos_lamp=_pos_tree=_pos_mountain=_pos_cloud=ofGetWidth();
         _pos_road=ofVec2f(ofGetWidth(),ofGetHeight()/1.9);
-        
+        _pos_car=ofGetWidth();
     }
     
     void setEffect(int i){
@@ -223,7 +276,7 @@ public:
             case 'a':
                 //                _timer_speed.restart();
                 _speed*=2;
-                _speed=ofClamp(_speed,10,80);
+                _speed=ofClamp(_speed,10,100);
                 break;
         }
     }
