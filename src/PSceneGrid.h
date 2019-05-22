@@ -70,6 +70,7 @@ public:
         _idx_gridy=0;
         _speed=0;
         
+        _timer_add.stop();
     }
     void setEffect(int i){
         switch(i){
@@ -87,8 +88,8 @@ public:
     
     void addGrid(){
         if(_idx_gridx>=_mgridx && _idx_gridy>=_mgridy-1){
-            _timer_add.restart();
             reset();
+            _timer_add.restart();
             return;
         }
         

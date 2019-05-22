@@ -61,10 +61,16 @@ public:
             _timer_add.restart();
         }
         
-        
+        if(ofRandom(5)<1){
+            _pos_smoke.x=ofRandom(.3,.7)*ofGetWidth();
+            _ang_start=ofRandom(HALF_PI);
+            _ang_end=ofRandom(_ang_start,PI);
+            
+            _timer_add.restart();
+        }
     }
     void draw(){
-        ofClear(0);
+//        ofClear(0);
         //        _tex_line.draw(0,0);
         
         _tex_line.getTexture().bind();
@@ -93,16 +99,16 @@ public:
             case 'A':
                 reset();
                 break;
-            case 's':
-            case 'S':
+            case 'o':
+            case 'O':
                 _pos_smoke.x=ofRandom(.3,.7)*ofGetWidth();
                 _ang_start=ofRandom(HALF_PI);
                 _ang_end=ofRandom(_ang_start,PI);
                 
                 _timer_add.restart();
                 break;
-            case '>':
-            case '.':
+            case 'p':
+            case 'P':
                 addSmoke();
                 break;
         }

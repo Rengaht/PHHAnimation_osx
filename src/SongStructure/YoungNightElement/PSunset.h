@@ -146,6 +146,7 @@ public:
         _timer_move=FrameTimer(t*.75);
 //        _timer_move.restart();
         
+        _layer=0;
         _pos=p;
         init(w);
         

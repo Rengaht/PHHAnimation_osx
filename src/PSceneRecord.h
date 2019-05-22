@@ -53,7 +53,7 @@ public:
     }
     void addRecord(){
         _record.clear();
-        if(_idx_stage==0) _record.push_back(new PRecord(ofVec2f(ofGetWidth()/2,ofGetHeight()/2),ofGetHeight()*ofRandom(.2,.45)));
+        if(_idx_stage==0) _record.push_back(new PRecord(ofVec2f(ofGetWidth()*ofRandom(.3,.7),ofGetHeight()/2),ofGetHeight()*ofRandom(.3,.45)));
         else{
             for(int i=0;i<4;++i) _record.push_back(new PRecord(ofVec2f(ofGetWidth()/4*(i+.5),ofGetHeight()/2),ofGetWidth()/4*ofRandom(.2,.45)));
         }

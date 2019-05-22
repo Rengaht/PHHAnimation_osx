@@ -1,7 +1,7 @@
 #pragma once
 
 
-//#define DRAW_DEBUG
+#define DRAW_DEBUG
 #define WSTROKE 2
 #include "ofMain.h"
 #include "ofxNDISender.h"

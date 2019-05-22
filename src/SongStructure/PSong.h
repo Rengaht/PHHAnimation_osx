@@ -46,7 +46,7 @@ public:
         if(index_<0 || index_>=_mscene) return;
         _idx_scene=index_;
     }
-    void setEffect(int key_){
+    virtual void setEffect(int key_){
         switch(key_){
             case 'q':
             case 'Q':

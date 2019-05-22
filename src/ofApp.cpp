@@ -50,8 +50,8 @@ void ofApp::draw(){
 		_song[_idx_song]->draw();
 	_fbo.end();
 
-    //_fbo.readToPixels(_pixels);
-    //_NDIsender.send(_pixels);
+    _fbo.readToPixels(_pixels);
+    _NDIsender.send(_pixels);
 
 	_fbo.draw(0,0);
 
@@ -73,10 +73,10 @@ void ofApp::keyPressed(int key){
 		case '2':
 			setScene(key-'1');
 			break;
-        case 'p':
-        case 'P':
-            _song[_idx_song]->reset();
-            break;
+//        case 'p':
+//        case 'P':
+//            _song[_idx_song]->reset();
+//            break;
         case ' ':
             _recording=!_recording;
             break;
@@ -98,5 +98,5 @@ void ofApp::setScene(int set_){
 }
 
 void ofApp::mapEffect(int key_){
-    _song[_idx_song]->setEffect(key_);
+    (*_song[_idx_song]).setEffect(key_);
 }

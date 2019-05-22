@@ -76,13 +76,15 @@ public:
         _tex_cloud.getTexture().unbind();
         
         _tex_rock.getTexture().bind();
-        for(auto& e: _element)
+        for(auto& e: _element){
             if(e->_layer==1) (*e).draw();
+            if(e->_layer==0) (*e).draw();
+        }
         _tex_rock.getTexture().unbind();
         
-        
-        for(auto& e: _element)
-            if(e->_layer==0) (*e).draw();
+//        
+//        for(auto& e: _element)
+//            if(e->_layer==0) (*e).draw();
         
 //        _camera.end();
         

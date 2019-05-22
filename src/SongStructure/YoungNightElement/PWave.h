@@ -129,4 +129,115 @@ public:
     }
 };
 
+
+class PHWave:public PElement{
+    ofMesh _mesh;
+    ofColor _color;
+    ofVec2f _pos_shadow;
+    
+    FrameTimer _timer_drop,_timer_move;
+    
+public:
+    int _stage;
+    PHWave(float t){
+        _color=ofColor(ofRandom(80,180),ofRandom(20),ofRandom(120,255),ofRandom(120,180));
+        
+        _timer_drop=FrameTimer(t*.3);
+        _timer_drop.restart();
+        _timer_move=FrameTimer(t*.7);
+        _timer_move.restart();
+        
+        _layer=2;
+        init();
+    }
+    void init(){
+        _mesh.setMode(OF_PRIMITIVE_TRIANGLES);
+        float y=0;
+        float sw=ofGetWidth()*ofRandom(.2,.7);
+        float sh=ofRandom(.05,.1)*ofGetHeight();
+        
+        _pos=ofVec2f(ofRandom(-.2,.8)*sw,y);
+        _size=ofVec2f(sw,sh);
+        
+        _mesh.addVertex(ofVec2f(0,y));
+        _mesh.addVertex(ofVec2f(sw,y));
+        _mesh.addVertex(ofVec2f(sw,y+sh));
+        
+        _mesh.addVertex(ofVec2f(sw,y+sh));
+        _mesh.addVertex(ofVec2f(0,y+sh));
+        _mesh.addVertex(ofVec2f(0,y));
+        
+        float ty=ofRandom(0,y);
+        float tx=ofRandom(0,sw);
+        float sc=(float)ofGetHeight()/sw;
+        _mesh.addTexCoord(ofVec2f(tx,ty));
+        _mesh.addTexCoord(ofVec2f(tx+sw,ty));
+        _mesh.addTexCoord(ofVec2f(tx+sw,ty+sh*sc));
+        
+        _mesh.addTexCoord(ofVec2f(tx+sw,ty+sh*sc));
+        _mesh.addTexCoord(ofVec2f(tx+0,ty+sh*sc));
+        _mesh.addTexCoord(ofVec2f(tx+0,ty));
+        
+        int m=floor(ofRandom(3,6));
+        
+    }
+    void draw(){
+        ofPushStyle();
+        ofPushMatrix();
+        //ofTranslate(_pos.x,_pos.y+ofGetHeight()*_timer_move.valEaseInOut());
+        if(_stage==0) ofTranslate(_pos.x,ofMap(_timer_drop.val(),0,1,-_size.y/2,ofGetHeight()/2));
+        else ofTranslate(_pos.x,ofGetHeight()/2+(ofGetHeight()/2+_size.y*2)*_timer_move.valEaseOut());
+        
+//        ofPushMatrix();
+//        ofTranslate(_pos_shadow);
+        
+        
+//        ofSetColor(_color,128);
+//        _mesh.draw();
+//        ofPopMatrix();
+        
+        ofSetColor(_color);
+        _mesh.draw();
+        
+        
+        ofPopMatrix();
+        ofPopStyle();
+    }
+    void update(float vel_,float dt_){
+        PElement::update(0,dt_);
+        
+        _pos.y+=vel_;
+        //if(_pos.y>ofGetHeight()+_size.y) _dead=true;
+        _timer_drop.update(dt_);
+        if(_timer_drop.val()==1 && _stage==0){
+            _timer_move.restart();
+            _stage=1;
+        }
+        _timer_move.update(dt_);
+        if(_timer_move.val()==1) _dead=true;
+        
+        
+        //_timer_fadein.update(dt_);
+        if(ofRandom(10)<1) _pos_shadow=ofVec2f(20*ofNoise(-20,20),ofRandom(-20,20));
+        
+        
+        if(ofRandom(10)>1) return;
+        
+        float ty=abs(sin(ofGetFrameNum()/200.0))*_pos.y;
+        float sh=_size.y;
+        float sw=_size.x;
+        float tx=ofRandom(0,ofGetHeight()-sw);
+        float sc=(float)ofGetHeight()/sw;
+        
+        _mesh.clearTexCoords();
+        _mesh.addTexCoord(ofVec2f(tx,ty));
+        _mesh.addTexCoord(ofVec2f(tx+sw,ty));
+        _mesh.addTexCoord(ofVec2f(tx+sw,ty+sh*sc));
+        
+        _mesh.addTexCoord(ofVec2f(tx+sw,ty+sh*sc));
+        _mesh.addTexCoord(ofVec2f(tx,ty+sh*sc));
+        _mesh.addTexCoord(ofVec2f(tx,ty));
+    }
+};
+
 #endif /* PWave_h */

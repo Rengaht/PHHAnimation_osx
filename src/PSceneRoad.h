@@ -30,7 +30,7 @@ public:
     
     PSceneRoad():PScene(){
         _speed=10;
-        _mstage=4;
+        _mstage=5;
         
         _timer_speed=FrameTimer(1000);
         
@@ -94,20 +94,22 @@ public:
             else it++;
         }
         
-        if(_idx_stage>0){
+        if(_idx_stage>1){
             _pos_mountain-=_speed;
             addMountain();
         }
-        if(_idx_stage>1){
+        if(_idx_stage>2){
             _pos_cloud-=_speed*.5;
             addCloud();
         }
-        if(_idx_stage>2){
+        if(_idx_stage>3){
             _pos_tree-=_speed;
             addTree();
         }
-        _pos_road.x-=_speed*1.2;
-        addRoad();
+        if(_idx_stage>0){
+            _pos_road.x-=_speed*1.2;
+            addRoad();
+        }
         
         if(_speed>10) _speed-=.5;
         //        if(_timer_speed.val()==1) _timer_speed.reset();

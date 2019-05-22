@@ -16,7 +16,7 @@ class PRecord:public PElement{
     ofMesh _mesh;
     ofMesh _mesh_pinhead;
     
-    ofColor _color;
+    ofColor _color,_color_center;
     FrameTimer _timer_rot,_timer_pin;
     float _vel;
     float _ang_rot;
@@ -26,11 +26,17 @@ class PRecord:public PElement{
     
     float _seg;
     float _rad_texcoord;
+    
+    float _rad_center;
+    
 public:
     
     int _stage;
     PRecord(ofVec2f p,float w){
         _color=ofColor(ofRandom(200,255),ofRandom(80,150),ofRandom(60),120);
+        _color_center=ofColor(ofRandom(120),0,ofRandom(180,255));
+        
+        _rad_center=ofRandom(.3,.6);
         
         reset();
         _timer_pin=FrameTimer(ofRandom(100,500));
@@ -170,14 +176,21 @@ public:
         
         ofSetColor(_color,255);
             _mesh.draw();
-        ofPopMatrix();
+        
         
         ofPushMatrix();
+        ofScale(_rad_center,_rad_center);
+        ofSetColor(_color_center);
+            _mesh.draw();
+        ofPopMatrix();
+
+        ofPushMatrix();
         ofScale(.1,.1);
-        ofSetColor(0,255);
+        ofSetColor(0);
             _mesh.draw();
         ofPopMatrix();
         
+        ofPopMatrix();
         
         ofPushMatrix();
         ofTranslate(-_size.x*1.1,-_size.y*1.2);

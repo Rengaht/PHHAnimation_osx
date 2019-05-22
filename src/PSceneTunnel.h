@@ -28,6 +28,8 @@ public:
         _camera.setNearClip(0);
         _camera.setFarClip(ofGetWidth()*2);
         
+        _mstage=2;
+        
         reset();
         initTexture();
     }
@@ -42,8 +44,10 @@ public:
         _pos_sign+=_speed;
         addSign();
         
-        _pos_rock-=_speed*10;
-        addRock();
+        if(_idx_stage>0){
+            _pos_rock-=_speed*10;
+            addRock();
+        }
         
         if(_speed>10) _speed-=.5;
     }
@@ -82,9 +86,18 @@ public:
     void setEffect(int i){
         switch(i){
             case 'a':
+            case 'A':
                 //                _timer_speed.restart();
                 _speed*=2;
                 _speed=ofClamp(_speed,10,80);
+                break;
+            case '.':
+            case '>':
+                goNextStage();
+                break;
+            case ',':
+            case '<':
+                goPrevStage();
                 break;
         }
     }
