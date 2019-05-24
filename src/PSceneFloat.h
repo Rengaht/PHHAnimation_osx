@@ -50,7 +50,7 @@ public:
             else it++;
         }
         
-        if(_speed>8) _speed-=1;
+        if(_speed>10) _speed-=1;
         _pos_planet-=_speed;
         _pos_cloud-=_speed*.5;
         

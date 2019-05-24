@@ -53,10 +53,17 @@ public:
     }
     void addRecord(){
         _record.clear();
-        if(_idx_stage==0) _record.push_back(new PRecord(ofVec2f(ofGetWidth()*ofRandom(.3,.7),ofGetHeight()/2),ofGetHeight()*ofRandom(.3,.45)));
-        else{
-            for(int i=0;i<4;++i) _record.push_back(new PRecord(ofVec2f(ofGetWidth()/4*(i+.5),ofGetHeight()/2),ofGetWidth()/4*ofRandom(.2,.45)));
+        int m=floor(ofRandom(5,8));
+        if(_idx_stage==0){
+            m=floor(ofRandom(2,4));
         }
+//          _record.push_back(new PRecord(ofVec2f(ofGetWidth()/2,ofGetHeight()/2),ofGetHeight()*ofRandom(.2,.25)*2));
+//            int m=floor(ofRandom(3,8));
+            float e=1.0/m;
+            for(int i=0;i<m;++i) _record.push_back(new PRecord(ofVec2f((ofRandom(-.1,.1)*.25+(float)i*e+e*.5)*ofGetWidth(),ofRandom(ofGetHeight())),ofGetWidth()/2*ofRandom(.2,.45)));
+//        }else{
+//            for(int i=0;i<4;++i) _record.push_back(new PRecord(ofVec2f(ofGetWidth()/4*(i+.5),ofGetHeight()/2),ofGetWidth()/4*ofRandom(.2,.45)));
+//        }
     }
     void setEffect(int i){
         switch(i){

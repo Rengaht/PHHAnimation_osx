@@ -62,7 +62,7 @@ public:
         _element.clear();
         
 //        int t=floor(ofRandom(1,3));
-        _mgridx=ofRandom(6,15);
+        _mgridx=ofRandom(6,12);
         _grid_width=(float)ofGetWidth()/_mgridx;
         _mgridy=floor((float)ofGetHeight()/_grid_width);
         

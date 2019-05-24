@@ -140,7 +140,7 @@ class PHWave:public PElement{
 public:
     int _stage;
     PHWave(float t){
-        _color=ofColor(ofRandom(80,180),ofRandom(20),ofRandom(120,255),ofRandom(120,180));
+        _color=ofColor(ofRandom(80,180),ofRandom(20),ofRandom(120,255),ofRandom(180,255));
         
         _timer_drop=FrameTimer(t*.3);
         _timer_drop.restart();
